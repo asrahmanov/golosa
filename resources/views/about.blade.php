@@ -488,7 +488,7 @@
                         </div>
                     </div>
                     <h3 class="value-title">Единство</h3>
-                    <p class="value-text">Мы разные — но мы единая страна</p>
+                    <p class="value-text">Мы разные, но мы — единая страна</p>
                 </div>
                 <div class="value-card">
                     <div class="value-icon">
