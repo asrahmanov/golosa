@@ -29,3 +29,4 @@ class Narrator extends Model
     }
 }
 
+

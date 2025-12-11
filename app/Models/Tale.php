@@ -54,3 +54,4 @@ class Tale extends Model
     }
 }
 
+

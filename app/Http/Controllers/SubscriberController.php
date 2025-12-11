@@ -42,3 +42,4 @@ class SubscriberController extends Controller
     }
 }
 
+
