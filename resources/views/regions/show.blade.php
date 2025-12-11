@@ -109,13 +109,42 @@
 
     /* Responsive */
     @media (max-width: 768px) {
+        .region-hero {
+            padding: 8rem 1.5rem 3rem;
+        }
+
         .region-title {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
+        }
+
+        .region-people {
+            font-size: 1.1rem;
+        }
+
+        .region-description {
+            font-size: 1.05rem;
+        }
+
+        .coming-soon-section {
+            padding: 2rem 0 4rem;
+        }
+
+        .back-link {
+            margin-bottom: 1.5rem;
         }
 
         .coming-soon-card {
-            margin: 0 1rem;
+            margin: 0;
             padding: 2rem 1.5rem;
+            border-radius: 16px;
+        }
+
+        .coming-soon-title {
+            font-size: 1.5rem;
+        }
+
+        .coming-soon-text {
+            font-size: 1rem;
         }
     }
 </style>
