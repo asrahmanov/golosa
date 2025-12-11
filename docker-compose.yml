@@ -1,0 +1,71 @@
+version: '3.8'
+
+services:
+  # Laravel Application
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: golosa-app
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+      - ./storage:/var/www/html/storage
+      - ./bootstrap/cache:/var/www/html/bootstrap/cache
+    environment:
+      - APP_ENV=local
+      - APP_DEBUG=true
+      - DB_CONNECTION=pgsql
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_DATABASE=golosa_edinstva
+      - DB_USERNAME=golosa
+      - DB_PASSWORD=golosa_secret_2024
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - golosa-network
+
+  # PostgreSQL Database
+  db:
+    image: postgres:15-alpine
+    container_name: golosa-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: golosa_edinstva
+      POSTGRES_USER: golosa
+      POSTGRES_PASSWORD: golosa_secret_2024
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U golosa -d golosa_edinstva"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - golosa-network
+
+  # Adminer (Database Management UI) - optional
+  adminer:
+    image: adminer
+    container_name: golosa-adminer
+    restart: unless-stopped
+    ports:
+      - "8081:8080"
+    depends_on:
+      - db
+    networks:
+      - golosa-network
+
+networks:
+  golosa-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+
