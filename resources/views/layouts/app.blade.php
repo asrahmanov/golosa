@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Голоса Единства — всероссийская аудиобиблиотека народных сказок к Году единства народов России — 2025">
     <title>@yield('title', 'Голоса Единства — Аудиобиблиотека народных сказок')</title>
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
     <link rel="apple-touch-icon" href="{{ asset('favicon.svg') }}">
     <meta name="theme-color" content="#0f1419">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <style>
         :root {
             --color-bg-dark: #0f1419;
@@ -69,7 +69,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: 
+            background:
                 radial-gradient(ellipse at 20% 30%, rgba(107, 140, 174, 0.08) 0%, transparent 50%),
                 radial-gradient(ellipse at 80% 20%, rgba(201, 168, 108, 0.06) 0%, transparent 40%),
                 radial-gradient(ellipse at 50% 80%, rgba(107, 140, 174, 0.05) 0%, transparent 45%);
@@ -224,7 +224,7 @@
         }
 
         @keyframes ambientMove {
-            0%, 100% { 
+            0%, 100% {
                 top: 20%;
                 left: 20%;
             }
@@ -622,7 +622,7 @@
                     <span>Год единства народов России</span>
                 </div>
             </a>
-            
+
             <nav class="nav" id="nav">
                 <a href="{{ route('home') }}" class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}">Главная</a>
                 <a href="{{ route('tales.index') }}" class="nav-link {{ request()->routeIs('tales.*') ? 'active' : '' }}">Сказки</a>
@@ -655,7 +655,7 @@
                 </a>
                 <p>Всероссийская культурная инициатива к Году единства народов России. Мы объединяем народы через мудрость сказок.</p>
             </div>
-            
+
             <div class="footer-section">
                 <h4>Навигация</h4>
                 <ul class="footer-links">
@@ -666,7 +666,7 @@
                     <li><a href="{{ route('help') }}">Помочь проекту</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-section">
                 <h4>Проект</h4>
                 <ul class="footer-links">
@@ -675,7 +675,7 @@
                     <li><a href="tel:+79215939096">+7 (921) 593-90-96</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-section">
                 <h4>Социальные сети</h4>
                 <ul class="footer-links">
@@ -685,10 +685,10 @@
                 </ul>
             </div>
         </div>
-        
+
         <div class="footer-bottom">
             <p>© {{ date('Y') }} Голоса Единства. Всероссийская культурная инициатива.</p>
-            <p style="margin-top: 0.5rem;">Проект посвящён <a href="#">Году единства народов России — 2025</a></p>
+            <p style="margin-top: 0.5rem;">Проект посвящён <a href="#">Году единства народов России — 2026</a></p>
         </div>
     </footer>
 
@@ -732,17 +732,17 @@
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
-                
+
                 // Рандомизация позиции и анимации
                 const left = Math.random() * 100;
                 const duration = 15 + Math.random() * 20; // 15-35 секунд
                 const delay = Math.random() * 20;
                 const size = 2 + Math.random() * 4;
-                
+
                 // Рандомный цвет между accent и primary
                 const colors = ['var(--color-accent)', 'var(--color-primary-light)', 'var(--color-primary)'];
                 const color = colors[Math.floor(Math.random() * colors.length)];
-                
+
                 particle.style.cssText = `
                     left: ${left}%;
                     width: ${size}px;
@@ -751,7 +751,7 @@
                     animation-duration: ${duration}s;
                     animation-delay: ${delay}s;
                 `;
-                
+
                 container.appendChild(particle);
             }
         }
@@ -764,19 +764,19 @@
             for (let i = 0; i < barCount; i++) {
                 const bar = document.createElement('div');
                 bar.className = 'sound-wave-bar';
-                
+
                 // Создаём волнообразный паттерн
                 const centerOffset = Math.abs(i - barCount / 2) / (barCount / 2);
                 const baseHeight = 20 + (1 - centerOffset) * 80; // Выше в центре
                 const duration = 2 + Math.random() * 2;
                 const delay = (i / barCount) * 2 + Math.random() * 0.5;
-                
+
                 bar.style.cssText = `
                     --wave-height: ${baseHeight}px;
                     animation-duration: ${duration}s;
                     animation-delay: ${delay}s;
                 `;
-                
+
                 container.appendChild(bar);
             }
         }
