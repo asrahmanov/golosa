@@ -2,6 +2,7 @@
 
 # Голоса Единства - Docker Build & Run Script
 # ============================================
+# Using Bitnami images (no Docker Hub rate limits)
 
 set -e
 
@@ -68,14 +69,10 @@ check_docker() {
     fi
 }
 
-# Create .env file for Docker if not exists
+# Create .env file for Docker
 setup_env() {
-    if [ -f .env.docker ]; then
-        print_warning "Using .env.docker for Docker configuration..."
-        cp .env.docker .env
-    elif [ ! -f .env ]; then
-        print_warning ".env file not found, creating default..."
-        cat > .env << 'ENVEOF'
+    print_warning "Setting up .env for Docker..."
+    cat > .env << 'ENVEOF'
 APP_NAME="Голоса Единства"
 APP_ENV=local
 APP_KEY=
@@ -96,16 +93,6 @@ CACHE_DRIVER=file
 SESSION_DRIVER=file
 QUEUE_CONNECTION=sync
 ENVEOF
-    else
-        # Update existing .env for Docker PostgreSQL
-        sed -i.bak 's/DB_CONNECTION=.*/DB_CONNECTION=pgsql/' .env
-        sed -i.bak 's/DB_HOST=.*/DB_HOST=db/' .env
-        sed -i.bak 's/DB_PORT=.*/DB_PORT=5432/' .env
-        sed -i.bak 's/DB_DATABASE=.*/DB_DATABASE=golosa_edinstva/' .env
-        sed -i.bak 's/DB_USERNAME=.*/DB_USERNAME=golosa/' .env
-        sed -i.bak 's/DB_PASSWORD=.*/DB_PASSWORD=golosa_secret_2024/' .env
-        rm -f .env.bak
-    fi
     
     print_success ".env configured for Docker"
 }
@@ -117,35 +104,41 @@ build() {
     check_docker
     setup_env
     
-    echo "Building Docker images..."
-    docker-compose build --no-cache
+    echo "Pulling Docker images (Bitnami - no rate limits)..."
+    docker-compose pull
     
     echo "Starting containers..."
     docker-compose up -d
     
+    echo "Waiting for containers to be ready..."
+    sleep 15
+    
     echo "Waiting for database to be ready..."
-    sleep 10
+    until docker-compose exec -T db pg_isready -U golosa -d golosa_edinstva > /dev/null 2>&1; do
+        echo "Waiting for PostgreSQL..."
+        sleep 2
+    done
     
     echo "Installing Composer dependencies..."
-    docker-compose exec -T app composer install --no-interaction --prefer-dist --optimize-autoloader
+    docker-compose exec -T app composer install --no-interaction --prefer-dist --optimize-autoloader 2>/dev/null || \
+    docker-compose exec -T app bash -c "cd /app && composer install --no-interaction --prefer-dist --optimize-autoloader"
     
     echo "Generating application key..."
-    docker-compose exec -T app php artisan key:generate --force
+    docker-compose exec -T app php artisan key:generate --force 2>/dev/null || \
+    docker-compose exec -T app bash -c "cd /app && php artisan key:generate --force"
     
     echo "Running migrations..."
-    docker-compose exec -T app php artisan migrate --force
+    docker-compose exec -T app php artisan migrate --force 2>/dev/null || \
+    docker-compose exec -T app bash -c "cd /app && php artisan migrate --force"
     
     echo "Running seeders..."
-    docker-compose exec -T app php artisan db:seed --force
-    
-    echo "Setting permissions..."
-    docker-compose exec -T app chown -R www-data:www-data /var/www/html/storage
-    docker-compose exec -T app chmod -R 775 /var/www/html/storage
+    docker-compose exec -T app php artisan db:seed --force 2>/dev/null || \
+    docker-compose exec -T app bash -c "cd /app && php artisan db:seed --force"
     
     echo "Clearing caches..."
-    docker-compose exec -T app php artisan config:clear
-    docker-compose exec -T app php artisan cache:clear
-    docker-compose exec -T app php artisan view:clear
+    docker-compose exec -T app php artisan config:clear 2>/dev/null || true
+    docker-compose exec -T app php artisan cache:clear 2>/dev/null || true
+    docker-compose exec -T app php artisan view:clear 2>/dev/null || true
     
     print_header "✅ Build Complete!"
     echo -e "${GREEN}Application:${NC} http://localhost:8080"
@@ -175,9 +168,6 @@ rebuild() {
     echo "Stopping containers..."
     docker-compose down -v --remove-orphans
     
-    echo "Removing old images..."
-    docker-compose rm -f
-    
     # Run full build
     build
 }
@@ -192,15 +182,17 @@ update() {
     git pull 2>/dev/null || print_warning "Not a git repository or no remote configured"
     
     echo "Installing/updating Composer dependencies..."
-    docker-compose exec -T app composer install --no-interaction --prefer-dist --optimize-autoloader
+    docker-compose exec -T app composer install --no-interaction --prefer-dist --optimize-autoloader 2>/dev/null || \
+    docker-compose exec -T app bash -c "cd /app && composer install --no-interaction --prefer-dist --optimize-autoloader"
     
     echo "Running migrations..."
-    docker-compose exec -T app php artisan migrate --force
+    docker-compose exec -T app php artisan migrate --force 2>/dev/null || \
+    docker-compose exec -T app bash -c "cd /app && php artisan migrate --force"
     
     echo "Clearing caches..."
-    docker-compose exec -T app php artisan config:clear
-    docker-compose exec -T app php artisan cache:clear
-    docker-compose exec -T app php artisan view:clear
+    docker-compose exec -T app php artisan config:clear 2>/dev/null || true
+    docker-compose exec -T app php artisan cache:clear 2>/dev/null || true
+    docker-compose exec -T app php artisan view:clear 2>/dev/null || true
     
     print_success "Update complete!"
 }
@@ -234,7 +226,8 @@ restart() {
 migrate() {
     print_header "📦 Running Migrations"
     check_docker
-    docker-compose exec -T app php artisan migrate --force
+    docker-compose exec -T app php artisan migrate --force 2>/dev/null || \
+    docker-compose exec -T app bash -c "cd /app && php artisan migrate --force"
     print_success "Migrations complete!"
 }
 
@@ -242,7 +235,8 @@ migrate() {
 seed() {
     print_header "🌱 Running Seeders"
     check_docker
-    docker-compose exec -T app php artisan db:seed --force
+    docker-compose exec -T app php artisan db:seed --force 2>/dev/null || \
+    docker-compose exec -T app bash -c "cd /app && php artisan db:seed --force"
     print_success "Seeding complete!"
 }
 
@@ -258,7 +252,8 @@ fresh() {
         exit 0
     fi
     
-    docker-compose exec -T app php artisan migrate:fresh --seed --force
+    docker-compose exec -T app php artisan migrate:fresh --seed --force 2>/dev/null || \
+    docker-compose exec -T app bash -c "cd /app && php artisan migrate:fresh --seed --force"
     print_success "Fresh migrations complete!"
 }
 
@@ -344,4 +339,3 @@ case "${1:-help}" in
         show_help
         ;;
 esac
-

@@ -1,28 +1,24 @@
 version: '3.8'
 
 services:
-  # Laravel Application
+  # Laravel Application with Bitnami (no rate limits)
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: bitnami/laravel:10
     container_name: golosa-app
     restart: unless-stopped
     ports:
-      - "8080:80"
+      - "8080:8000"
     volumes:
-      - .:/var/www/html
-      - ./storage:/var/www/html/storage
-      - ./bootstrap/cache:/var/www/html/bootstrap/cache
+      - .:/app
     environment:
-      - APP_ENV=local
-      - APP_DEBUG=true
       - DB_CONNECTION=pgsql
       - DB_HOST=db
       - DB_PORT=5432
       - DB_DATABASE=golosa_edinstva
       - DB_USERNAME=golosa
       - DB_PASSWORD=golosa_secret_2024
+      - APP_ENV=local
+      - APP_DEBUG=true
     depends_on:
       db:
         condition: service_healthy
@@ -31,17 +27,17 @@ services:
 
   # PostgreSQL Database
   db:
-    image: postgres:15-alpine
+    image: bitnami/postgresql:15
     container_name: golosa-db
     restart: unless-stopped
     environment:
-      POSTGRES_DB: golosa_edinstva
-      POSTGRES_USER: golosa
-      POSTGRES_PASSWORD: golosa_secret_2024
+      - POSTGRESQL_DATABASE=golosa_edinstva
+      - POSTGRESQL_USERNAME=golosa
+      - POSTGRESQL_PASSWORD=golosa_secret_2024
     ports:
       - "5432:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_data:/bitnami/postgresql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U golosa -d golosa_edinstva"]
       interval: 5s
@@ -50,9 +46,9 @@ services:
     networks:
       - golosa-network
 
-  # Adminer (Database Management UI) - optional
+  # Adminer (Database Management UI)
   adminer:
-    image: adminer
+    image: adminer:latest
     container_name: golosa-adminer
     restart: unless-stopped
     ports:
@@ -68,4 +64,3 @@ networks:
 
 volumes:
   postgres_data:
-
