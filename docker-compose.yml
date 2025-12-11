@@ -10,13 +10,16 @@ services:
     restart: unless-stopped
     ports:
       - "80:80"
+      - "443:443"
     volumes:
       - .:/var/www/html
       - ./storage:/var/www/html/storage
       - ./bootstrap/cache:/var/www/html/bootstrap/cache
+      - ./ssl:/etc/apache2/ssl:ro
     environment:
-      - APP_ENV=local
-      - APP_DEBUG=true
+      - APP_ENV=production
+      - APP_DEBUG=false
+      - APP_URL=https://golosa-edinstva.ru
       - DB_CONNECTION=pgsql
       - DB_HOST=db
       - DB_PORT=5432

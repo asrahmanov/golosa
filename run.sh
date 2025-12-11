@@ -56,17 +56,30 @@ check_docker() {
     fi
 }
 
+check_ssl() {
+    if [ ! -f "./ssl/certificate.crt" ] || [ ! -f "./ssl/private.key" ]; then
+        print_error "SSL certificates not found!"
+        echo ""
+        echo "Please add SSL certificates to the ssl/ folder:"
+        echo "  - ssl/certificate.crt"
+        echo "  - ssl/private.key"
+        echo ""
+        exit 1
+    fi
+    print_success "SSL certificates found"
+}
+
 setup_env() {
     print_warning "Setting up .env for Docker..."
     cat > .env << 'ENVEOF'
 APP_NAME="Голоса Единства"
-APP_ENV=local
+APP_ENV=production
 APP_KEY=
-APP_DEBUG=true
-APP_URL=http://localhost
+APP_DEBUG=false
+APP_URL=https://golosa-edinstva.ru
 
 LOG_CHANNEL=stack
-LOG_LEVEL=debug
+LOG_LEVEL=error
 
 DB_CONNECTION=pgsql
 DB_HOST=db
@@ -78,14 +91,17 @@ DB_PASSWORD=golosa_secret_2024
 CACHE_DRIVER=file
 SESSION_DRIVER=file
 QUEUE_CONNECTION=sync
+
+SESSION_SECURE_COOKIE=true
 ENVEOF
-    print_success ".env configured for Docker"
+    print_success ".env configured for Docker (HTTPS)"
 }
 
 build() {
     print_header "🏗️  Building $PROJECT"
     
     check_docker
+    check_ssl
     setup_env
     
     echo "Building Docker images..."
@@ -129,8 +145,9 @@ build() {
     docker-compose exec -T app php artisan view:clear
     
     print_header "✅ Build Complete!"
-    echo -e "${GREEN}Application:${NC} http://localhost"
-    echo -e "${GREEN}Adminer (DB):${NC} http://localhost:8081"
+    echo -e "${GREEN}Application (HTTPS):${NC} https://golosa-edinstva.ru"
+    echo -e "${GREEN}Application (HTTP):${NC}  http://golosa-edinstva.ru (redirect to HTTPS)"
+    echo -e "${GREEN}Adminer (DB):${NC}        http://localhost:8081"
     echo ""
     echo -e "Database credentials:"
     echo -e "  Server: db"
@@ -171,7 +188,7 @@ start() {
     print_header "▶️  Starting $PROJECT"
     check_docker
     docker-compose up -d
-    print_success "Started! http://localhost"
+    print_success "Started! https://golosa-edinstva.ru"
 }
 
 stop() {
