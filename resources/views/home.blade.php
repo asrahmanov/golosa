@@ -899,11 +899,24 @@
 
     @media (max-width: 768px) {
         .hero {
-            padding: 7rem 1rem 4rem;
+            padding: 7rem 1.5rem 4rem;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
         }
 
         .hero-subtitle {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
+        }
+
+        .hero-layout {
+            gap: 2rem;
+        }
+
+        .hero-video-circle {
+            width: 200px;
+            height: 200px;
         }
 
         .stats {
@@ -919,12 +932,30 @@
             font-size: 2rem;
         }
 
+        .featured-section {
+            padding: 4rem 0;
+        }
+
         .featured-grid {
             grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .coming-preview {
+            gap: 1.5rem;
+        }
+
+        .coming-preview-card {
+            padding: 2rem 1.5rem;
+        }
+
+        .quote-section {
+            padding: 3rem 0;
         }
 
         .quote {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
+            padding: 0;
         }
 
         .cta-box {
@@ -933,6 +964,14 @@
 
         .cta-title {
             font-size: 1.8rem;
+        }
+
+        .regions-grid {
+            gap: 1rem;
+        }
+
+        .supported-section {
+            padding: 3rem 0;
         }
     }
 </style>
@@ -956,7 +995,7 @@
             <div class="hero-content">
                 <div class="hero-badge">
                     <span>🇷🇺</span>
-                    Год единства народов России — 2026
+                    Год единства народов России — 2025
                 </div>
                 <h1 class="hero-title">Голоса Единства</h1>
                 <p class="hero-subtitle">
@@ -1013,7 +1052,7 @@
                 <span class="stat-label">Народов России</span>
             </div>
             <div class="stat-card">
-                <span class="stat-number">2026</span>
+                <span class="stat-number">2025</span>
                 <span class="stat-label">Год запуска</span>
             </div>
             <div class="stat-card">

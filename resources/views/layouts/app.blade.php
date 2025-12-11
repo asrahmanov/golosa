@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Голоса Единства — всероссийская аудиобиблиотека народных сказок к Году единства народов России — 2026">
+    <meta name="description" content="Голоса Единства — всероссийская аудиобиблиотека народных сказок к Году единства народов России — 2025">
     <title>@yield('title', 'Голоса Единства — Аудиобиблиотека народных сказок')</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -510,7 +510,7 @@
 
         @media (max-width: 768px) {
             .header {
-                padding: 1rem;
+                padding: 1rem 1.25rem;
             }
 
             .nav {
@@ -521,7 +521,7 @@
                 right: 0;
                 background: var(--color-bg-medium);
                 flex-direction: column;
-                padding: 1rem;
+                padding: 1.5rem;
                 gap: 1rem;
                 border-bottom: 1px solid var(--color-border);
             }
@@ -534,21 +534,44 @@
                 display: block;
             }
 
+            .footer {
+                padding: 3rem 1.5rem 2rem;
+            }
+
             .footer-content {
                 grid-template-columns: 1fr;
                 text-align: center;
+                gap: 2rem;
             }
 
             .footer-brand {
                 max-width: none;
             }
 
+            .footer-bottom {
+                padding: 1.5rem 0 0;
+            }
+
             .section-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+                margin-bottom: 2rem;
             }
 
             .container {
-                padding: 0 1rem;
+                padding: 0 1.5rem;
+            }
+
+            .btn {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .card {
+                border-radius: 12px;
             }
         }
 
@@ -622,7 +645,7 @@
                     <div class="logo-icon">🪶</div>
                     <div class="logo-text">
                         Голоса Единства
-                        <span>2026</span>
+                        <span>2025</span>
                     </div>
                 </a>
                 <p>Всероссийская культурная инициатива к Году единства народов России. Мы объединяем народы через мудрость сказок.</p>
@@ -660,7 +683,7 @@
         
         <div class="footer-bottom">
             <p>© {{ date('Y') }} Голоса Единства. Всероссийская культурная инициатива.</p>
-            <p style="margin-top: 0.5rem;">Проект посвящён <a href="#">Году единства народов России — 2026</a></p>
+            <p style="margin-top: 0.5rem;">Проект посвящён <a href="#">Году единства народов России — 2025</a></p>
         </div>
     </footer>
 
