@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Enable Apache mod_rewrite
-RUN a]_enmod rewrite
+RUN a2enmod rewrite
 
 # Set working directory
 WORKDIR /var/www/html

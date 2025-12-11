@@ -70,19 +70,42 @@ check_docker() {
 
 # Create .env file for Docker if not exists
 setup_env() {
-    if [ ! -f .env ]; then
-        print_warning ".env file not found, creating from .env.example..."
-        cp .env.example .env
+    if [ -f .env.docker ]; then
+        print_warning "Using .env.docker for Docker configuration..."
+        cp .env.docker .env
+    elif [ ! -f .env ]; then
+        print_warning ".env file not found, creating default..."
+        cat > .env << 'ENVEOF'
+APP_NAME="Голоса Единства"
+APP_ENV=local
+APP_KEY=
+APP_DEBUG=true
+APP_URL=http://localhost:8080
+
+LOG_CHANNEL=stack
+LOG_LEVEL=debug
+
+DB_CONNECTION=pgsql
+DB_HOST=db
+DB_PORT=5432
+DB_DATABASE=golosa_edinstva
+DB_USERNAME=golosa
+DB_PASSWORD=golosa_secret_2024
+
+CACHE_DRIVER=file
+SESSION_DRIVER=file
+QUEUE_CONNECTION=sync
+ENVEOF
+    else
+        # Update existing .env for Docker PostgreSQL
+        sed -i.bak 's/DB_CONNECTION=.*/DB_CONNECTION=pgsql/' .env
+        sed -i.bak 's/DB_HOST=.*/DB_HOST=db/' .env
+        sed -i.bak 's/DB_PORT=.*/DB_PORT=5432/' .env
+        sed -i.bak 's/DB_DATABASE=.*/DB_DATABASE=golosa_edinstva/' .env
+        sed -i.bak 's/DB_USERNAME=.*/DB_USERNAME=golosa/' .env
+        sed -i.bak 's/DB_PASSWORD=.*/DB_PASSWORD=golosa_secret_2024/' .env
+        rm -f .env.bak
     fi
-    
-    # Update .env for Docker PostgreSQL
-    sed -i.bak 's/DB_CONNECTION=.*/DB_CONNECTION=pgsql/' .env
-    sed -i.bak 's/DB_HOST=.*/DB_HOST=db/' .env
-    sed -i.bak 's/DB_PORT=.*/DB_PORT=5432/' .env
-    sed -i.bak 's/DB_DATABASE=.*/DB_DATABASE=golosa_edinstva/' .env
-    sed -i.bak 's/DB_USERNAME=.*/DB_USERNAME=golosa/' .env
-    sed -i.bak 's/DB_PASSWORD=.*/DB_PASSWORD=golosa_secret_2024/' .env
-    rm -f .env.bak
     
     print_success ".env configured for Docker"
 }
