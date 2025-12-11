@@ -302,84 +302,6 @@
         margin-bottom: 2rem;
     }
 
-    /* CTA Section */
-    .cta-section {
-        padding: 6rem 0;
-        text-align: center;
-    }
-
-    .cta-box {
-        background: linear-gradient(135deg, var(--color-bg-card) 0%, var(--color-bg-medium) 100%);
-        border-radius: 24px;
-        padding: 4rem;
-        border: 1px solid var(--color-border);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .cta-box::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(ellipse at center, rgba(201, 168, 108, 0.1) 0%, transparent 50%);
-        animation: rotate 30s linear infinite;
-    }
-
-    @keyframes rotate {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-    }
-
-    .cta-content {
-        position: relative;
-        z-index: 1;
-    }
-
-    .cta-title {
-        font-family: var(--font-display);
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-    }
-
-    .cta-text {
-        color: var(--color-text-muted);
-        font-size: 1.1rem;
-        max-width: 600px;
-        margin: 0 auto 2rem;
-    }
-
-    /* Partners */
-    .partners-section {
-        padding: 4rem 0;
-        text-align: center;
-    }
-
-    .partners-title {
-        font-family: var(--font-display);
-        font-size: 1.5rem;
-        color: var(--color-text-muted);
-        margin-bottom: 2rem;
-    }
-
-    .partners-logos {
-        display: flex;
-        justify-content: center;
-        gap: 3rem;
-        flex-wrap: wrap;
-        opacity: 0.6;
-    }
-
-    .partner-logo {
-        padding: 1rem 2rem;
-        background: var(--color-bg-card);
-        border-radius: 10px;
-        font-family: var(--font-display);
-        color: var(--color-text-muted);
-    }
-
     /* Responsive */
     @media (max-width: 1024px) {
         .values-grid {
@@ -406,10 +328,6 @@
 
         .mission-quote p {
             font-size: 1.15rem;
-        }
-
-        .cta-box {
-            padding: 2.5rem 1.5rem;
         }
     }
 </style>
@@ -603,37 +521,9 @@
                 мы будем рады сотрудничеству.
             </p>
             
-            <a href="mailto:info@golosa-edinstva.ru" class="btn btn-primary">
+            <a href="{{ route('contacts') }}" class="btn btn-primary">
                 Связаться с нами
             </a>
-        </div>
-    </section>
-
-    <!-- Partners Section -->
-    <section class="partners-section">
-        <div class="container">
-            <h3 class="partners-title">При поддержке</h3>
-            <div class="partners-logos">
-                <div class="partner-logo">Министерство культуры</div>
-                <div class="partner-logo">Российский фонд культуры</div>
-                <div class="partner-logo">Яндекс</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section container">
-        <div class="cta-box">
-            <div class="cta-content">
-                <h2 class="cta-title">Станьте частью проекта</h2>
-                <p class="cta-text">
-                    Мы приглашаем партнёров, спонсоров и известных людей присоединиться 
-                    к созданию аудиобиблиотеки народных сказок России.
-                </p>
-                <a href="mailto:info@golosa-edinstva.ru" class="btn btn-primary">
-                    Связаться с нами
-                </a>
-            </div>
         </div>
     </section>
 @endsection
