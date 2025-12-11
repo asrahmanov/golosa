@@ -539,13 +539,64 @@
         }
     }
 
-    @media (max-width: 600px) {
-        .quick-actions-grid {
-            grid-template-columns: 1fr;
+    @media (max-width: 768px) {
+        .instructions-hero {
+            padding: 8rem 1.5rem 3rem;
+        }
+
+        .instructions-title {
+            font-size: 2.2rem;
+        }
+
+        .instructions-subtitle {
+            font-size: 1.05rem;
+        }
+
+        .video-circle-outer {
+            width: 150px;
+            height: 150px;
+        }
+
+        .content-section {
+            padding: 3rem 0;
+        }
+
+        .content-container {
+            padding: 0;
+        }
+
+        .instruction-block {
+            padding: 1.5rem;
         }
 
         .instruction-header h2 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
+        }
+
+        .steps-list li {
+            padding-left: 1rem;
+        }
+
+        .tips-grid {
+            gap: 1rem;
+        }
+
+        .tip-card {
+            padding: 1.5rem;
+        }
+
+        .cta-section {
+            padding: 3rem 0;
+        }
+
+        .cta-box {
+            padding: 2rem 1.5rem;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .quick-actions-grid {
+            grid-template-columns: 1fr;
         }
     }
 </style>
