@@ -75,7 +75,10 @@ class DatabaseSeeder extends Seeder
         ];
 
         foreach ($regions as $regionData) {
-            Region::create($regionData);
+            Region::updateOrCreate(
+                ['slug' => $regionData['slug']],
+                $regionData
+            );
         }
 
         // Создаём чтецов
@@ -113,7 +116,10 @@ class DatabaseSeeder extends Seeder
         ];
 
         foreach ($narrators as $narratorData) {
-            Narrator::create($narratorData);
+            Narrator::updateOrCreate(
+                ['slug' => $narratorData['slug']],
+                $narratorData
+            );
         }
 
         // Создаём сказки
@@ -262,7 +268,10 @@ class DatabaseSeeder extends Seeder
         ];
 
         foreach ($tales as $taleData) {
-            Tale::create($taleData);
+            Tale::updateOrCreate(
+                ['slug' => $taleData['slug']],
+                $taleData
+            );
         }
     }
 }
