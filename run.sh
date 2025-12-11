@@ -63,7 +63,7 @@ APP_NAME="Голоса Единства"
 APP_ENV=local
 APP_KEY=
 APP_DEBUG=true
-APP_URL=http://localhost:8080
+APP_URL=http://localhost
 
 LOG_CHANNEL=stack
 LOG_LEVEL=debug
@@ -129,7 +129,7 @@ build() {
     docker-compose exec -T app php artisan view:clear
     
     print_header "✅ Build Complete!"
-    echo -e "${GREEN}Application:${NC} http://localhost:8080"
+    echo -e "${GREEN}Application:${NC} http://localhost"
     echo -e "${GREEN}Adminer (DB):${NC} http://localhost:8081"
     echo ""
     echo -e "Database credentials:"
@@ -171,7 +171,7 @@ start() {
     print_header "▶️  Starting $PROJECT"
     check_docker
     docker-compose up -d
-    print_success "Started! http://localhost:8080"
+    print_success "Started! http://localhost"
 }
 
 stop() {
