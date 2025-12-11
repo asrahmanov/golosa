@@ -57,12 +57,12 @@ check_docker() {
 }
 
 check_ssl() {
-    if [ ! -f "./ssl/certificate.crt" ] || [ ! -f "./ssl/private.key" ]; then
+    if [ ! -f "./ssl/golosa-edinstva.ru.crt" ] || [ ! -f "./ssl/golosa-edinstva.ru.key" ]; then
         print_error "SSL certificates not found!"
         echo ""
         echo "Please add SSL certificates to the ssl/ folder:"
-        echo "  - ssl/certificate.crt"
-        echo "  - ssl/private.key"
+        echo "  - ssl/golosa-edinstva.ru.crt"
+        echo "  - ssl/golosa-edinstva.ru.key"
         echo ""
         exit 1
     fi

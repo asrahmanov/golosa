@@ -51,8 +51,8 @@ RUN echo '<VirtualHost *:443>\n\
     DocumentRoot /var/www/html/public\n\
     \n\
     SSLEngine on\n\
-    SSLCertificateFile /etc/apache2/ssl/certificate.crt\n\
-    SSLCertificateKeyFile /etc/apache2/ssl/private.key\n\
+    SSLCertificateFile /etc/apache2/ssl/golosa-edinstva.ru.crt\n\
+    SSLCertificateKeyFile /etc/apache2/ssl/golosa-edinstva.ru.key\n\
     \n\
     <Directory /var/www/html/public>\n\
         Options Indexes FollowSymLinks\n\
