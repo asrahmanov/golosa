@@ -1,0 +1,51 @@
+# Use Debian base image from Quay.io (no rate limits)
+FROM quay.io/fedora/php:latest
+
+USER root
+
+# Install required packages
+RUN dnf install -y \
+    php-pdo \
+    php-pgsql \
+    php-mbstring \
+    php-xml \
+    php-gd \
+    php-zip \
+    php-bcmath \
+    httpd \
+    git \
+    unzip \
+    curl \
+    && dnf clean all
+
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Set working directory
+WORKDIR /var/www/html
+
+# Copy application files
+COPY . .
+
+# Set permissions
+RUN chown -R apache:apache /var/www/html \
+    && chmod -R 755 /var/www/html
+
+# Apache configuration
+RUN echo '<VirtualHost *:80>\n\
+    DocumentRoot /var/www/html/public\n\
+    <Directory /var/www/html/public>\n\
+        Options Indexes FollowSymLinks\n\
+        AllowOverride All\n\
+        Require all granted\n\
+    </Directory>\n\
+    ErrorLog /var/log/httpd/error_log\n\
+    CustomLog /var/log/httpd/access_log combined\n\
+</VirtualHost>' > /etc/httpd/conf.d/laravel.conf
+
+# Expose port 80
+EXPOSE 80
+
+# Start Apache
+CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
+

@@ -1,15 +1,17 @@
 version: '3.8'
 
 services:
-  # Laravel Application with Bitnami (no rate limits)
+  # Laravel Application
   app:
-    image: bitnami/laravel:10
+    build:
+      context: .
+      dockerfile: Dockerfile.local
     container_name: golosa-app
     restart: unless-stopped
     ports:
-      - "8080:8000"
+      - "8080:80"
     volumes:
-      - .:/app
+      - .:/var/www/html
     environment:
       - DB_CONNECTION=pgsql
       - DB_HOST=db
@@ -25,36 +27,24 @@ services:
     networks:
       - golosa-network
 
-  # PostgreSQL Database
+  # PostgreSQL Database (from Quay.io - no rate limits)
   db:
-    image: bitnami/postgresql:15
+    image: quay.io/sclorg/postgresql-15-c9s:latest
     container_name: golosa-db
     restart: unless-stopped
     environment:
       - POSTGRESQL_DATABASE=golosa_edinstva
-      - POSTGRESQL_USERNAME=golosa
+      - POSTGRESQL_USER=golosa
       - POSTGRESQL_PASSWORD=golosa_secret_2024
     ports:
       - "5432:5432"
     volumes:
-      - postgres_data:/bitnami/postgresql
+      - postgres_data:/var/lib/pgsql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U golosa -d golosa_edinstva"]
+      test: ["CMD-SHELL", "pg_isready -U golosa -d golosa_edinstva || exit 1"]
       interval: 5s
       timeout: 5s
-      retries: 5
-    networks:
-      - golosa-network
-
-  # Adminer (Database Management UI)
-  adminer:
-    image: adminer:latest
-    container_name: golosa-adminer
-    restart: unless-stopped
-    ports:
-      - "8081:8080"
-    depends_on:
-      - db
+      retries: 10
     networks:
       - golosa-network
 
