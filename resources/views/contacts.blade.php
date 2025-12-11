@@ -285,16 +285,50 @@
     }
 
     @media (max-width: 768px) {
+        .contacts-hero {
+            padding: 8rem 1.5rem 3rem;
+        }
+
         .contacts-title {
             font-size: 2.5rem;
         }
 
+        .contacts-subtitle {
+            font-size: 1.05rem;
+        }
+
+        .coordinator-section {
+            padding: 2rem 0;
+        }
+
+        .coordinator-card {
+            padding: 2rem 1.5rem;
+        }
+
+        .departments-section {
+            padding: 3rem 0;
+        }
+
         .departments-grid {
             grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .department-card {
+            padding: 1.5rem;
+        }
+
+        .methods-section {
+            padding: 3rem 0;
         }
 
         .methods-grid {
             grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .method-card {
+            padding: 1.5rem;
         }
     }
 </style>

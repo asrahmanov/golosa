@@ -266,8 +266,57 @@
     }
 
     @media (max-width: 768px) {
+        .help-hero {
+            padding: 8rem 1.5rem 3rem;
+        }
+
+        .help-title {
+            font-size: 2.5rem;
+        }
+
+        .help-subtitle {
+            font-size: 1.1rem;
+        }
+
+        .payment-section {
+            padding: 3rem 0;
+        }
+
+        .payment-grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .payment-qr-card {
+            padding: 2rem 1.5rem;
+        }
+
+        .payment-details-card {
+            padding: 2rem 1.5rem;
+        }
+
         .alt-payment-grid {
             grid-template-columns: 1fr;
+        }
+
+        .needs-section {
+            padding: 3rem 0;
+        }
+
+        .needs-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .simple-section {
+            padding: 3rem 0;
+        }
+
+        .thanks-section {
+            padding: 3rem 0;
+        }
+
+        .thanks-card {
+            padding: 2rem 1.5rem;
         }
     }
 

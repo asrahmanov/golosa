@@ -220,12 +220,42 @@
     }
 
     @media (max-width: 768px) {
+        .page-header {
+            padding: 8rem 1.5rem 3rem;
+        }
+
         .page-title {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
+        }
+
+        .page-subtitle {
+            font-size: 1.05rem;
+        }
+
+        .regions-section {
+            padding: 3rem 0 4rem;
         }
 
         .regions-grid {
             grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .region-card {
+            margin: 0;
+        }
+
+        .values-section {
+            padding: 3rem 0;
+        }
+
+        .values-grid {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .value-card {
+            padding: 1.5rem;
         }
     }
 </style>

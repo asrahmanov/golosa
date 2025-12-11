@@ -254,26 +254,54 @@
 
     /* Responsive */
     @media (max-width: 768px) {
+        .page-header {
+            padding: 8rem 1.5rem 3rem;
+        }
+
         .page-title {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
+        }
+
+        .page-subtitle {
+            font-size: 1.05rem;
+        }
+
+        .coming-soon-section {
+            padding: 3rem 0 5rem;
         }
 
         .coming-soon-card {
-            padding: 2.5rem 1.5rem;
-            margin: 0 1rem;
+            padding: 2rem 1.5rem;
+            margin: 0;
+            border-radius: 16px;
         }
 
         .coming-soon-title {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
+        }
+
+        .coming-soon-text {
+            font-size: 1rem;
         }
 
         .notify-form {
             flex-direction: column;
+            gap: 1rem;
+        }
+
+        .notify-input {
+            width: 100%;
         }
 
         .progress-items {
             flex-direction: column;
             align-items: center;
+            gap: 1.5rem;
+        }
+
+        .progress-item {
+            width: 100%;
+            max-width: 280px;
         }
     }
 </style>
