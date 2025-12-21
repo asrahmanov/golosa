@@ -546,7 +546,8 @@
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                 </svg>
-                ТРЦ «Гранд Каньон», 3 этаж, «Дивный город»
+                ТРЦ «Гранд Каньон», 3 этаж, «Дивный город»<br>
+                пр-т. Энгельса, 154, Санкт-Петербург, 194358
             </div>
 
             <a href="#program" class="btn btn-primary">Программа мероприятия</a>
@@ -741,7 +742,7 @@
                 <img src="{{ asset('img/grand/photo_2025-12-21 20.41.16.jpeg') }}" alt="Гранд Каньон">
             </div>
             <div class="venue-image">
-                <img src="{{ asset('img/grand/photo_2025-12-21 20.41.20.jpeg') }}" alt="Гранд Каньон">
+                <img src="{{ asset('img/grand/61864015.jpeg') }}" alt="Гранд Каньон">
             </div>
             <div class="venue-image">
                 <img src="{{ asset('img/grand/photo_2025-12-21 20.41.24.jpeg') }}" alt="Гранд Каньон">
@@ -835,7 +836,7 @@
             </p>
 
             <div class="cta-date-big">4 января, 13:00 — 16:00</div>
-            <div class="cta-location-big">ТРЦ «Гранд Каньон», 3 этаж, «Дивный город»</div>
+            <div class="cta-location-big">ТРЦ «Гранд Каньон», 3 этаж, «Дивный город»<br>пр-т. Энгельса, 154, Санкт-Петербург</div>
 
             <a href="{{ route('about') }}" class="btn btn-primary">Узнать о проекте</a>
         </div>
