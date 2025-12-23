@@ -24,3 +24,4 @@ class Subscriber extends Model
 
 
 
+
