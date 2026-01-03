@@ -1052,7 +1052,7 @@
                 <span class="stat-label">Народов России</span>
             </div>
             <div class="stat-card">
-                <span class="stat-number">2025</span>
+                <span class="stat-number">2026</span>
                 <span class="stat-label">Год запуска</span>
             </div>
             <div class="stat-card">
