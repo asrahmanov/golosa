@@ -626,31 +626,33 @@
     .supported-companies {
         display: flex;
         justify-content: center;
-        align-items: center;
-        gap: 2rem;
+        align-items: stretch;
+        gap: 2.5rem;
         flex-wrap: wrap;
     }
 
     .supported-company {
-        display: inline-flex;
+        display: flex;
+        flex-direction: column;
         align-items: center;
-        gap: 1rem;
+        gap: 1.25rem;
         background: var(--color-bg-card);
-        padding: 1rem 1.5rem;
-        border-radius: 16px;
+        padding: 2rem 2.5rem;
+        border-radius: 20px;
         border: 1px solid var(--color-border);
         transition: all 0.3s ease;
+        min-width: 220px;
     }
 
     .supported-company:hover {
         border-color: var(--color-accent);
-        transform: translateY(-3px);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
     }
 
     .supported-logo {
-        width: 50px;
-        height: 50px;
+        width: 100px;
+        height: 100px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -665,17 +667,18 @@
         width: 100%;
         height: 100%;
         object-fit: contain;
-        border-radius: 8px;
+        border-radius: 12px;
     }
 
     .supported-info {
-        text-align: left;
+        text-align: center;
     }
 
     .supported-name {
         font-family: var(--font-display);
-        font-size: 1.1rem;
+        font-size: 1.15rem;
         color: var(--color-text);
+        line-height: 1.4;
     }
 
     /* Regions Section */
@@ -991,16 +994,22 @@
 
         .supported-companies {
             flex-direction: column;
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
         .supported-company {
             width: 100%;
-            justify-content: center;
+            padding: 1.5rem 2rem;
+            min-width: auto;
+        }
+
+        .supported-logo {
+            width: 80px;
+            height: 80px;
         }
 
         .supported-name {
-            font-size: 0.95rem;
+            font-size: 1rem;
         }
     }
 </style>
