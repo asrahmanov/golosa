@@ -1197,7 +1197,7 @@
             <p class="supported-label">При поддержке</p>
             <div class="supported-companies">
                 <div class="supported-company">
-                    <div class="supported-logo">
+                    <div class="supported-logo" style="width: 80px; height: 80px;">
                         <img src="/img/partners/paradox.svg" alt="Парадокс">
                     </div>
                     <div class="supported-info">
