@@ -36,220 +36,222 @@
         margin: 0 auto;
     }
 
-    /* Coming Soon Section */
-    .coming-soon-section {
-        padding: 4rem 0 8rem;
+    /* Yandex Music Section */
+    .yandex-section {
+        padding: 4rem 0;
     }
 
-    .coming-soon-card {
-        max-width: 800px;
+    .yandex-card {
+        max-width: 700px;
         margin: 0 auto;
         background: var(--color-bg-card);
         border-radius: 24px;
-        padding: 4rem;
+        padding: 2.5rem;
         border: 1px solid var(--color-border);
         text-align: center;
-        position: relative;
-        overflow: hidden;
     }
 
-    .coming-soon-card::before {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(ellipse at center, rgba(201, 168, 108, 0.05) 0%, transparent 50%);
-        animation: rotate 30s linear infinite;
-    }
-
-    @keyframes rotate {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-    }
-
-    .coming-soon-content {
-        position: relative;
-        z-index: 1;
-    }
-
-    .coming-soon-icon {
-        width: 120px;
-        height: 120px;
-        margin: 0 auto 2rem;
-        background: linear-gradient(135deg, var(--color-bg-medium), var(--color-bg-card));
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 2px solid var(--color-border);
-        position: relative;
-    }
-
-    .coming-soon-icon::before {
-        content: '';
-        position: absolute;
-        inset: -8px;
-        border: 1px dashed var(--color-accent);
-        border-radius: 50%;
-        animation: spinSlow 20s linear infinite;
-    }
-
-    @keyframes spinSlow {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-    }
-
-    .coming-soon-icon svg {
-        width: 50px;
-        height: 50px;
-    }
-
-    .coming-soon-badge {
+    .yandex-badge {
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
-        background: rgba(201, 168, 108, 0.15);
-        border: 1px solid rgba(201, 168, 108, 0.3);
+        background: rgba(255, 204, 0, 0.15);
+        border: 1px solid rgba(255, 204, 0, 0.3);
         padding: 0.5rem 1.25rem;
         border-radius: 50px;
         font-size: 0.9rem;
-        color: var(--color-accent);
+        color: #ffcc00;
         margin-bottom: 1.5rem;
     }
 
-    .coming-soon-title {
+    .yandex-title {
         font-family: var(--font-display);
-        font-size: 2.5rem;
+        font-size: 1.8rem;
         margin-bottom: 1rem;
         color: var(--color-text);
     }
 
-    .coming-soon-text {
+    .yandex-text {
         color: var(--color-text-muted);
-        font-size: 1.15rem;
-        line-height: 1.8;
         margin-bottom: 2rem;
-        max-width: 550px;
-        margin-left: auto;
-        margin-right: auto;
+        line-height: 1.7;
     }
 
-    /* Progress indicators */
-    .progress-section {
-        margin-top: 3rem;
-        padding-top: 2rem;
-        border-top: 1px solid var(--color-border);
+    .yandex-iframe-wrapper {
+        background: #fff;
+        border-radius: 16px;
+        padding: 1rem;
+        display: inline-block;
     }
 
-    .progress-title {
-        font-family: var(--font-display);
-        font-size: 1.2rem;
-        color: var(--color-accent);
-        margin-bottom: 1.5rem;
+    .yandex-iframe-wrapper iframe {
+        border-radius: 12px;
+        max-width: 100%;
     }
 
-    .progress-items {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        flex-wrap: wrap;
+    /* Tales Library Section */
+    .tales-section {
+        padding: 4rem 0 6rem;
     }
 
-    .progress-item {
+    .tales-grid {
+        display: grid;
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .tale-card {
+        background: var(--color-bg-card);
+        border-radius: 16px;
+        padding: 1.5rem;
+        border: 1px solid var(--color-border);
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        gap: 1.5rem;
+        align-items: center;
+        transition: all 0.3s ease;
+    }
+
+    .tale-card:hover {
+        border-color: var(--color-accent);
+        transform: translateY(-2px);
+    }
+
+    .tale-play-btn {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light));
+        border: none;
+        cursor: pointer;
         display: flex;
         align-items: center;
-        gap: 0.75rem;
-        color: var(--color-text-muted);
-        font-size: 0.95rem;
+        justify-content: center;
+        transition: all 0.3s ease;
+        flex-shrink: 0;
     }
 
-    .progress-item-icon {
+    .tale-play-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 25px rgba(201, 168, 108, 0.4);
+    }
+
+    .tale-play-btn.playing {
+        background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+    }
+
+    .tale-play-btn svg {
         width: 24px;
         height: 24px;
-        border-radius: 50%;
+        fill: var(--color-bg-dark);
+    }
+
+    .tale-info {
+        min-width: 0;
+    }
+
+    .tale-title {
+        font-family: var(--font-display);
+        font-size: 1.15rem;
+        color: var(--color-text);
+        margin-bottom: 0.5rem;
+        line-height: 1.4;
+    }
+
+    .tale-meta {
         display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
         align-items: center;
-        justify-content: center;
+    }
+
+    .tale-narrator {
+        color: var(--color-accent);
+        font-size: 0.9rem;
+    }
+
+    .tale-region {
+        background: rgba(107, 140, 174, 0.2);
+        color: var(--color-primary-light);
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
         font-size: 0.75rem;
     }
 
-    .progress-item-icon.done {
-        background: rgba(107, 174, 107, 0.2);
-        color: #6bae6b;
-    }
-
-    .progress-item-icon.in-progress {
-        background: rgba(201, 168, 108, 0.2);
-        color: var(--color-accent);
-        animation: pulse 2s ease-in-out infinite;
-    }
-
-    .progress-item-icon.pending {
-        background: rgba(143, 163, 186, 0.2);
+    .tale-duration {
         color: var(--color-text-muted);
-    }
-
-    @keyframes pulse {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.1); }
-    }
-
-    /* Notification form */
-    .notify-section {
-        margin-top: 2.5rem;
-    }
-
-    .notify-text {
-        color: var(--color-text-muted);
-        font-size: 0.95rem;
-        margin-bottom: 1rem;
-    }
-
-    .notify-form {
-        display: flex;
-        gap: 0.75rem;
-        max-width: 400px;
-        margin: 0 auto;
-    }
-
-    .notify-input {
-        flex: 1;
-        padding: 0.875rem 1.25rem;
-        background: var(--color-bg-medium);
-        border: 1px solid var(--color-border);
-        border-radius: 12px;
-        color: var(--color-text);
-        font-size: 1rem;
-        font-family: var(--font-body);
-    }
-
-    .notify-input:focus {
-        outline: none;
-        border-color: var(--color-accent);
-    }
-
-    .notify-input::placeholder {
-        color: var(--color-text-muted);
-    }
-
-    .notify-btn {
-        padding: 0.875rem 1.5rem;
-        background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light));
-        border: none;
-        border-radius: 12px;
-        color: var(--color-bg-dark);
-        font-weight: 600;
-        font-size: 0.95rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
+        font-size: 0.85rem;
         white-space: nowrap;
     }
 
-    .notify-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(201, 168, 108, 0.3);
+    /* Audio Progress */
+    .tale-progress-container {
+        display: none;
+        grid-column: 1 / -1;
+        padding-top: 1rem;
+        border-top: 1px solid var(--color-border);
+        margin-top: 1rem;
+    }
+
+    .tale-card.active .tale-progress-container {
+        display: block;
+    }
+
+    .tale-progress-bar {
+        width: 100%;
+        height: 6px;
+        background: var(--color-bg-medium);
+        border-radius: 3px;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .tale-progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+        border-radius: 3px;
+        width: 0%;
+        transition: width 0.1s linear;
+    }
+
+    .tale-time {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 0.5rem;
+        font-size: 0.8rem;
+        color: var(--color-text-muted);
+    }
+
+    /* Stats Section */
+    .stats-section {
+        padding: 3rem 0;
+        border-top: 1px solid var(--color-border);
+        border-bottom: 1px solid var(--color-border);
+        margin-bottom: 4rem;
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .stat-item {
+        padding: 1rem;
+    }
+
+    .stat-number {
+        font-family: var(--font-display);
+        font-size: 3rem;
+        color: var(--color-accent);
+        line-height: 1;
+        margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+        color: var(--color-text-muted);
+        font-size: 0.95rem;
     }
 
     /* Responsive */
@@ -266,99 +268,67 @@
             font-size: 1.05rem;
         }
 
-        .coming-soon-section {
-            padding: 3rem 0 5rem;
+        .yandex-section {
+            padding: 3rem 0;
         }
 
-        .coming-soon-card {
-            padding: 2rem 1.5rem;
+        .yandex-card {
+            padding: 1.5rem;
             margin: 0;
             border-radius: 16px;
         }
 
-        .coming-soon-title {
-            font-size: 1.6rem;
+        .yandex-title {
+            font-size: 1.4rem;
         }
 
-        .coming-soon-text {
+        .yandex-iframe-wrapper {
+            padding: 0.5rem;
+            width: 100%;
+        }
+
+        .yandex-iframe-wrapper iframe {
+            width: 100% !important;
+            height: 400px !important;
+        }
+
+        .tales-section {
+            padding: 3rem 0 5rem;
+        }
+
+        .tale-card {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            padding: 1.25rem;
+        }
+
+        .tale-play-btn {
+            width: 50px;
+            height: 50px;
+        }
+
+        .tale-info {
+            order: -1;
+        }
+
+        .tale-title {
             font-size: 1rem;
         }
 
-        .notify-form {
-            flex-direction: column;
-            gap: 1rem;
+        .tale-duration {
+            display: none;
         }
 
-        .notify-input {
-            width: 100%;
-        }
-
-        .progress-items {
-            flex-direction: column;
-            align-items: center;
+        .stats-grid {
+            grid-template-columns: 1fr;
             gap: 1.5rem;
         }
 
-        .progress-item {
-            width: 100%;
-            max-width: 280px;
+        .stat-number {
+            font-size: 2.5rem;
         }
     }
 </style>
-@endsection
-
-@section('scripts')
-<script>
-document.getElementById('subscribeForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    
-    const form = this;
-    const email = document.getElementById('subscribeEmail').value;
-    const btn = document.getElementById('subscribeBtn');
-    const message = document.getElementById('subscribeMessage');
-    
-    // Показываем загрузку
-    btn.disabled = true;
-    btn.textContent = '...';
-    
-    try {
-        const response = await fetch('{{ route("subscribe") }}', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                'Accept': 'application/json',
-            },
-            body: JSON.stringify({ email: email, source: 'tales_page' })
-        });
-        
-        const data = await response.json();
-        
-        if (data.success) {
-            message.textContent = data.message;
-            message.style.display = 'block';
-            message.style.color = 'var(--color-accent)';
-            form.reset();
-            
-            if (!data.already_subscribed) {
-                btn.textContent = '✓ Готово';
-                btn.style.background = 'rgba(107, 174, 107, 0.3)';
-            } else {
-                btn.textContent = 'Уведомить';
-            }
-        } else {
-            throw new Error(data.message || 'Ошибка');
-        }
-    } catch (error) {
-        message.textContent = 'Произошла ошибка. Попробуйте ещё раз.';
-        message.style.display = 'block';
-        message.style.color = '#e57373';
-        btn.textContent = 'Уведомить';
-    }
-    
-    btn.disabled = false;
-});
-</script>
 @endsection
 
 @section('content')
@@ -370,66 +340,515 @@ document.getElementById('subscribeForm').addEventListener('submit', async functi
         </p>
     </section>
 
-    <!-- Coming Soon Section -->
-    <section class="coming-soon-section container">
-        <div class="coming-soon-card">
-            <div class="coming-soon-content">
-                <div class="coming-soon-icon">
-                    <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M25 5 L25 25 L35 35" stroke="#c9a86c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="25" cy="25" r="20" stroke="#6b8cae" stroke-width="2" fill="none"/>
-                        <circle cx="25" cy="5" r="2" fill="#c9a86c"/>
-                        <circle cx="45" cy="25" r="2" fill="#c9a86c"/>
-                        <circle cx="25" cy="45" r="2" fill="#c9a86c"/>
-                        <circle cx="5" cy="25" r="2" fill="#c9a86c"/>
-                    </svg>
-                </div>
+    <!-- Stats Section -->
+    <section class="stats-section container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">15</div>
+                <div class="stat-label">Записанных сказок</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">9</div>
+                <div class="stat-label">Народов России</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">15</div>
+                <div class="stat-label">Чтецов</div>
+            </div>
+        </div>
+    </section>
 
-                <div class="coming-soon-badge">
-                    <span>🎧</span>
-                    Скоро открытие
-                </div>
+    <!-- Yandex Music Section -->
+    <section class="yandex-section container">
+        <div class="yandex-card">
+            <div class="yandex-badge">
+                <span>🎵</span>
+                Яндекс Музыка
+            </div>
+            <h2 class="yandex-title">Слушайте на Яндекс Музыке</h2>
+            <p class="yandex-text">
+                Все сказки проекта «Голоса Единства» доступны на Яндекс Музыке. 
+                Слушайте в высоком качестве, добавляйте в плейлисты и делитесь с друзьями!
+            </p>
+            <div class="yandex-iframe-wrapper">
+                <iframe frameborder="0" allow="clipboard-write" style="border:none;width:614px;height:556px;" width="614" height="556" src="https://music.yandex.ru/iframe/album/39779260">Слушайте <a href="https://music.yandex.ru/album/39779260?utm_source=web&utm_medium=copy_link">Голоса единства</a> на Яндекс Музыке</iframe>
+            </div>
+        </div>
+    </section>
 
-                <h2 class="coming-soon-title">Скоро вы сможете послушать</h2>
-                
-                <p class="coming-soon-text">
-                    Мы собираем коллекцию народных сказок из разных уголков России. 
-                    Известные актёры, музыканты и общественные деятели уже готовятся 
-                    озвучить эти мудрые истории для вас.
-                </p>
+    <!-- Tales Library Section -->
+    <section class="tales-section container">
+        <h2 class="section-title" style="text-align: center;">Наша коллекция</h2>
+        <p class="section-subtitle" style="text-align: center;">Слушайте сказки прямо на сайте</p>
 
-                <div class="progress-section">
-                    <h3 class="progress-title">Этапы подготовки</h3>
-                    <div class="progress-items">
-                        <div class="progress-item">
-                            <div class="progress-item-icon in-progress">●</div>
-                            <span>Сбор сказок</span>
-                        </div>
-                        <div class="progress-item">
-                            <div class="progress-item-icon in-progress">●</div>
-                            <span>Приглашение чтецов</span>
-                        </div>
-                        <div class="progress-item">
-                            <div class="progress-item-icon pending">○</div>
-                            <span>Запись озвучки</span>
-                        </div>
-                        <div class="progress-item">
-                            <div class="progress-item-icon pending">○</div>
-                            <span>Публикация</span>
-                        </div>
+        <div class="tales-grid">
+            <!-- Сказка 1 -->
+            <div class="tale-card" data-audio="/audio/«ВОЛК,-ЛИСА-И-ПЕТУХ»-Ингушетская-народная-сказка-читает-Анна-Колесникова-_-Anna-Kolesnikova.mp3">
+                <button class="tale-play-btn" onclick="togglePlay(this)">
+                    <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <svg class="pause-icon" style="display:none" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+                <div class="tale-info">
+                    <h3 class="tale-title">Волк, Лиса и Петух</h3>
+                    <div class="tale-meta">
+                        <span class="tale-narrator">Анна Колесникова</span>
+                        <span class="tale-region">Ингушская</span>
                     </div>
                 </div>
+                <span class="tale-duration">2:30</span>
+                <div class="tale-progress-container">
+                    <div class="tale-progress-bar" onclick="seekAudio(event, this)">
+                        <div class="tale-progress-fill"></div>
+                    </div>
+                    <div class="tale-time">
+                        <span class="current-time">0:00</span>
+                        <span class="total-time">2:30</span>
+                    </div>
+                </div>
+            </div>
 
-                <div class="notify-section">
-                    <p class="notify-text">Хотите узнать первыми о запуске?</p>
-                    <form class="notify-form" id="subscribeForm">
-                        @csrf
-                        <input type="email" name="email" class="notify-input" id="subscribeEmail" placeholder="Ваш email" required>
-                        <button type="submit" class="notify-btn" id="subscribeBtn">Уведомить</button>
-                    </form>
-                    <p class="notify-message" id="subscribeMessage" style="display: none; margin-top: 1rem; color: var(--color-accent);"></p>
+            <!-- Сказка 2 -->
+            <div class="tale-card" data-audio="/audio/«ЧЕТЫРЕ-ДРУГА»-Народная-сказка-сибирских-татар-читает-Методие-Бужор-_-Metodiye-Buzhor.mp3">
+                <button class="tale-play-btn" onclick="togglePlay(this)">
+                    <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <svg class="pause-icon" style="display:none" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+                <div class="tale-info">
+                    <h3 class="tale-title">Четыре друга</h3>
+                    <div class="tale-meta">
+                        <span class="tale-narrator">Методие Бужор</span>
+                        <span class="tale-region">Сибирских татар</span>
+                    </div>
+                </div>
+                <span class="tale-duration">8:40</span>
+                <div class="tale-progress-container">
+                    <div class="tale-progress-bar" onclick="seekAudio(event, this)">
+                        <div class="tale-progress-fill"></div>
+                    </div>
+                    <div class="tale-time">
+                        <span class="current-time">0:00</span>
+                        <span class="total-time">8:40</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Сказка 3 -->
+            <div class="tale-card" data-audio="/audio/«ЖЁРНОВ-ХИЙСИ-ИЛИ-ПОЧЕМУ-ВОДА-В-МОРЕ-СОЛЁНАЯ»-Карельская-народная-сказка-читает-Виктория-Полторак-_-Viktoriya-Poltorak.mp3">
+                <button class="tale-play-btn" onclick="togglePlay(this)">
+                    <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <svg class="pause-icon" style="display:none" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+                <div class="tale-info">
+                    <h3 class="tale-title">Жёрнов Хийси, или Почему вода в море солёная</h3>
+                    <div class="tale-meta">
+                        <span class="tale-narrator">Виктория Полторак</span>
+                        <span class="tale-region">Карельская</span>
+                    </div>
+                </div>
+                <span class="tale-duration">13:45</span>
+                <div class="tale-progress-container">
+                    <div class="tale-progress-bar" onclick="seekAudio(event, this)">
+                        <div class="tale-progress-fill"></div>
+                    </div>
+                    <div class="tale-time">
+                        <span class="current-time">0:00</span>
+                        <span class="total-time">13:45</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Сказка 4 -->
+            <div class="tale-card" data-audio="/audio/«ГОРДЫЙ-ОЛЕНЬ»-Мансийская-сказка-читает-Екатерина-Егорова-(опера)-_-Ekaterina-Egorova.mp3">
+                <button class="tale-play-btn" onclick="togglePlay(this)">
+                    <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <svg class="pause-icon" style="display:none" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+                <div class="tale-info">
+                    <h3 class="tale-title">Гордый олень</h3>
+                    <div class="tale-meta">
+                        <span class="tale-narrator">Екатерина Егорова (опера)</span>
+                        <span class="tale-region">Мансийская</span>
+                    </div>
+                </div>
+                <span class="tale-duration">8:40</span>
+                <div class="tale-progress-container">
+                    <div class="tale-progress-bar" onclick="seekAudio(event, this)">
+                        <div class="tale-progress-fill"></div>
+                    </div>
+                    <div class="tale-time">
+                        <span class="current-time">0:00</span>
+                        <span class="total-time">8:40</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Сказка 5 -->
+            <div class="tale-card" data-audio="/audio/«ПАХАРЬ,-КУЗНЕЦ-И-ПЛОТНИК-(ВРОЗЬ-—-ПЛОХО,-ВМЕСТЕ-—-ХОРОШО)»-Мордовская-народная-сказка-читает-Егор-Тимофеев-_-Egor-Timofeev.mp3">
+                <button class="tale-play-btn" onclick="togglePlay(this)">
+                    <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <svg class="pause-icon" style="display:none" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+                <div class="tale-info">
+                    <h3 class="tale-title">Пахарь, Кузнец и Плотник (Врозь — плохо, вместе — хорошо)</h3>
+                    <div class="tale-meta">
+                        <span class="tale-narrator">Егор Тимофеев</span>
+                        <span class="tale-region">Мордовская</span>
+                    </div>
+                </div>
+                <span class="tale-duration">4:20</span>
+                <div class="tale-progress-container">
+                    <div class="tale-progress-bar" onclick="seekAudio(event, this)">
+                        <div class="tale-progress-fill"></div>
+                    </div>
+                    <div class="tale-time">
+                        <span class="current-time">0:00</span>
+                        <span class="total-time">4:20</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Сказка 6 -->
+            <div class="tale-card" data-audio="/audio/«СТО-ЛОШАДЕЙ-ИЛИ-СТО-ДРУЗЕЙ_»-Осетинская-народная-сказка-читает-Глеб-Владимирович-Темнов-_-Gleb-Vladimirovich-Temnov.mp3">
+                <button class="tale-play-btn" onclick="togglePlay(this)">
+                    <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <svg class="pause-icon" style="display:none" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+                <div class="tale-info">
+                    <h3 class="tale-title">Сто лошадей или сто друзей?</h3>
+                    <div class="tale-meta">
+                        <span class="tale-narrator">Глеб Владимирович Темнов</span>
+                        <span class="tale-region">Осетинская</span>
+                    </div>
+                </div>
+                <span class="tale-duration">7:30</span>
+                <div class="tale-progress-container">
+                    <div class="tale-progress-bar" onclick="seekAudio(event, this)">
+                        <div class="tale-progress-fill"></div>
+                    </div>
+                    <div class="tale-time">
+                        <span class="current-time">0:00</span>
+                        <span class="total-time">7:30</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Сказка 7 -->
+            <div class="tale-card" data-audio="/audio/«ЛИСА-И-ЖУРАВЛЬ»-Русская-народная-сказка-читает-Вячеслав-Жеребкин-_-Vyacheslav-Zherebkin.mp3">
+                <button class="tale-play-btn" onclick="togglePlay(this)">
+                    <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <svg class="pause-icon" style="display:none" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+                <div class="tale-info">
+                    <h3 class="tale-title">Лиса и Журавль</h3>
+                    <div class="tale-meta">
+                        <span class="tale-narrator">Вячеслав Жеребкин</span>
+                        <span class="tale-region">Русская</span>
+                    </div>
+                </div>
+                <span class="tale-duration">3:55</span>
+                <div class="tale-progress-container">
+                    <div class="tale-progress-bar" onclick="seekAudio(event, this)">
+                        <div class="tale-progress-fill"></div>
+                    </div>
+                    <div class="tale-time">
+                        <span class="current-time">0:00</span>
+                        <span class="total-time">3:55</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Сказка 8 -->
+            <div class="tale-card" data-audio="/audio/«СИВКА-БУРКА»-Русская-народная-сказка-читает-Афи́на-Я́нисовна-Делиони́ди-_-Afina-Yanisovna-Delionidi.mp3">
+                <button class="tale-play-btn" onclick="togglePlay(this)">
+                    <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <svg class="pause-icon" style="display:none" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+                <div class="tale-info">
+                    <h3 class="tale-title">Сивка-Бурка</h3>
+                    <div class="tale-meta">
+                        <span class="tale-narrator">Афина Янисовна Делиониди</span>
+                        <span class="tale-region">Русская</span>
+                    </div>
+                </div>
+                <span class="tale-duration">18:00</span>
+                <div class="tale-progress-container">
+                    <div class="tale-progress-bar" onclick="seekAudio(event, this)">
+                        <div class="tale-progress-fill"></div>
+                    </div>
+                    <div class="tale-time">
+                        <span class="current-time">0:00</span>
+                        <span class="total-time">18:00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Сказка 9 -->
+            <div class="tale-card" data-audio="/audio/«ПОТЕРЯННОЕ-СЛОВО»-Белорусская-народная-сказка-читает-Алексей-Обровец-_-Aleksey-Obrovets.mp3">
+                <button class="tale-play-btn" onclick="togglePlay(this)">
+                    <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <svg class="pause-icon" style="display:none" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+                <div class="tale-info">
+                    <h3 class="tale-title">Потерянное слово</h3>
+                    <div class="tale-meta">
+                        <span class="tale-narrator">Алексей Обровец</span>
+                        <span class="tale-region">Белорусская</span>
+                    </div>
+                </div>
+                <span class="tale-duration">5:30</span>
+                <div class="tale-progress-container">
+                    <div class="tale-progress-bar" onclick="seekAudio(event, this)">
+                        <div class="tale-progress-fill"></div>
+                    </div>
+                    <div class="tale-time">
+                        <span class="current-time">0:00</span>
+                        <span class="total-time">5:30</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Сказка 10 -->
+            <div class="tale-card" data-audio="/audio/«ГУСИ-ЛЕБЕДИ»-Русская-народная-сказка-читает-Александр-Шлеменко-_-Alexander-Shlemenko.mp3">
+                <button class="tale-play-btn" onclick="togglePlay(this)">
+                    <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <svg class="pause-icon" style="display:none" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+                <div class="tale-info">
+                    <h3 class="tale-title">Гуси-Лебеди</h3>
+                    <div class="tale-meta">
+                        <span class="tale-narrator">Александр Шлеменко</span>
+                        <span class="tale-region">Русская</span>
+                    </div>
+                </div>
+                <span class="tale-duration">9:10</span>
+                <div class="tale-progress-container">
+                    <div class="tale-progress-bar" onclick="seekAudio(event, this)">
+                        <div class="tale-progress-fill"></div>
+                    </div>
+                    <div class="tale-time">
+                        <span class="current-time">0:00</span>
+                        <span class="total-time">9:10</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Сказка 11 -->
+            <div class="tale-card" data-audio="/audio/«ПО-ЩУЧЬЕМУ-ВЕЛЕНИЮ»-русская-народная-сказка-читает-Виктор-Костенко-_-Viktor-Kostenko.mp3">
+                <button class="tale-play-btn" onclick="togglePlay(this)">
+                    <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <svg class="pause-icon" style="display:none" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+                <div class="tale-info">
+                    <h3 class="tale-title">По щучьему велению</h3>
+                    <div class="tale-meta">
+                        <span class="tale-narrator">Виктор Костенко</span>
+                        <span class="tale-region">Русская</span>
+                    </div>
+                </div>
+                <span class="tale-duration">23:25</span>
+                <div class="tale-progress-container">
+                    <div class="tale-progress-bar" onclick="seekAudio(event, this)">
+                        <div class="tale-progress-fill"></div>
+                    </div>
+                    <div class="tale-time">
+                        <span class="current-time">0:00</span>
+                        <span class="total-time">23:25</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Сказка 12 -->
+            <div class="tale-card" data-audio="/audio/ВЕСЁЛЫЙ-ВОРОБЕЙ»-калмыцкая-народная-сказка-читает-Театральная-студия-УМКА-_-Theatre-Studio-UMKA.mp3">
+                <button class="tale-play-btn" onclick="togglePlay(this)">
+                    <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <svg class="pause-icon" style="display:none" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+                <div class="tale-info">
+                    <h3 class="tale-title">Весёлый воробей</h3>
+                    <div class="tale-meta">
+                        <span class="tale-narrator">Театральная студия УМКА</span>
+                        <span class="tale-region">Калмыцкая</span>
+                    </div>
+                </div>
+                <span class="tale-duration">4:30</span>
+                <div class="tale-progress-container">
+                    <div class="tale-progress-bar" onclick="seekAudio(event, this)">
+                        <div class="tale-progress-fill"></div>
+                    </div>
+                    <div class="tale-time">
+                        <span class="current-time">0:00</span>
+                        <span class="total-time">4:30</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Сказка 13 -->
+            <div class="tale-card" data-audio="/audio/«ЗОЛОТАЯ-БАБУШКА»-якутская-народная-сказка-читает-Светлана-Бесчастнова-_-Svetlana-Beschastnova.mp3">
+                <button class="tale-play-btn" onclick="togglePlay(this)">
+                    <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <svg class="pause-icon" style="display:none" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+                <div class="tale-info">
+                    <h3 class="tale-title">Золотая бабушка</h3>
+                    <div class="tale-meta">
+                        <span class="tale-narrator">Светлана Бесчастнова</span>
+                        <span class="tale-region">Якутская</span>
+                    </div>
+                </div>
+                <span class="tale-duration">5:45</span>
+                <div class="tale-progress-container">
+                    <div class="tale-progress-bar" onclick="seekAudio(event, this)">
+                        <div class="tale-progress-fill"></div>
+                    </div>
+                    <div class="tale-time">
+                        <span class="current-time">0:00</span>
+                        <span class="total-time">5:45</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Сказка 14 -->
+            <div class="tale-card" data-audio="/audio/«МОРОЗКО»-русская-народная-сказка-читает-Театральная-студия-УМКА-_-Theatre-Studio-UMKA.mp3">
+                <button class="tale-play-btn" onclick="togglePlay(this)">
+                    <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <svg class="pause-icon" style="display:none" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+                <div class="tale-info">
+                    <h3 class="tale-title">Морозко</h3>
+                    <div class="tale-meta">
+                        <span class="tale-narrator">Театральная студия УМКА</span>
+                        <span class="tale-region">Русская</span>
+                    </div>
+                </div>
+                <span class="tale-duration">14:55</span>
+                <div class="tale-progress-container">
+                    <div class="tale-progress-bar" onclick="seekAudio(event, this)">
+                        <div class="tale-progress-fill"></div>
+                    </div>
+                    <div class="tale-time">
+                        <span class="current-time">0:00</span>
+                        <span class="total-time">14:55</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Сказка 15 -->
+            <div class="tale-card" data-audio="/audio/«ЗИМОВЬЕ-ЗВЕРЕЙ»-русская-народная-сказка-читает-актриса-и-певица-Анна-Янкевич-(Штарке)-_-Anna-Iankevich-(Starke).mp3">
+                <button class="tale-play-btn" onclick="togglePlay(this)">
+                    <svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <svg class="pause-icon" style="display:none" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+                <div class="tale-info">
+                    <h3 class="tale-title">Зимовье зверей</h3>
+                    <div class="tale-meta">
+                        <span class="tale-narrator">Анна Янкевич (Штарке)</span>
+                        <span class="tale-region">Русская</span>
+                    </div>
+                </div>
+                <span class="tale-duration">10:30</span>
+                <div class="tale-progress-container">
+                    <div class="tale-progress-bar" onclick="seekAudio(event, this)">
+                        <div class="tale-progress-fill"></div>
+                    </div>
+                    <div class="tale-time">
+                        <span class="current-time">0:00</span>
+                        <span class="total-time">10:30</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+@endsection
+
+@section('scripts')
+<script>
+let currentAudio = null;
+let currentCard = null;
+
+function togglePlay(btn) {
+    const card = btn.closest('.tale-card');
+    const audioSrc = card.dataset.audio;
+    
+    // Если кликнули на ту же карточку
+    if (currentCard === card) {
+        if (currentAudio.paused) {
+            currentAudio.play();
+            showPauseIcon(btn);
+            card.classList.add('active');
+        } else {
+            currentAudio.pause();
+            showPlayIcon(btn);
+        }
+        return;
+    }
+    
+    // Остановить предыдущее аудио
+    if (currentAudio) {
+        currentAudio.pause();
+        if (currentCard) {
+            const prevBtn = currentCard.querySelector('.tale-play-btn');
+            showPlayIcon(prevBtn);
+            currentCard.classList.remove('active');
+        }
+    }
+    
+    // Создать новое аудио
+    currentAudio = new Audio(audioSrc);
+    currentCard = card;
+    
+    // Обработчики событий
+    currentAudio.addEventListener('timeupdate', () => updateProgress(card));
+    currentAudio.addEventListener('loadedmetadata', () => {
+        const totalTime = card.querySelector('.total-time');
+        totalTime.textContent = formatTime(currentAudio.duration);
+    });
+    currentAudio.addEventListener('ended', () => {
+        showPlayIcon(btn);
+        card.classList.remove('active');
+        const progressFill = card.querySelector('.tale-progress-fill');
+        progressFill.style.width = '0%';
+    });
+    
+    currentAudio.play();
+    showPauseIcon(btn);
+    card.classList.add('active');
+}
+
+function showPlayIcon(btn) {
+    btn.querySelector('.play-icon').style.display = 'block';
+    btn.querySelector('.pause-icon').style.display = 'none';
+    btn.classList.remove('playing');
+}
+
+function showPauseIcon(btn) {
+    btn.querySelector('.play-icon').style.display = 'none';
+    btn.querySelector('.pause-icon').style.display = 'block';
+    btn.classList.add('playing');
+}
+
+function updateProgress(card) {
+    if (!currentAudio) return;
+    
+    const progressFill = card.querySelector('.tale-progress-fill');
+    const currentTimeEl = card.querySelector('.current-time');
+    
+    const percent = (currentAudio.currentTime / currentAudio.duration) * 100;
+    progressFill.style.width = percent + '%';
+    currentTimeEl.textContent = formatTime(currentAudio.currentTime);
+}
+
+function seekAudio(event, progressBar) {
+    if (!currentAudio) return;
+    
+    const rect = progressBar.getBoundingClientRect();
+    const percent = (event.clientX - rect.left) / rect.width;
+    currentAudio.currentTime = percent * currentAudio.duration;
+}
+
+function formatTime(seconds) {
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
+}
+</script>
 @endsection

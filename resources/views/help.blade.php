@@ -29,12 +29,12 @@
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
-        background: rgba(201, 168, 108, 0.15);
-        border: 1px solid rgba(201, 168, 108, 0.3);
+        background: rgba(107, 174, 107, 0.15);
+        border: 1px solid rgba(107, 174, 107, 0.3);
         padding: 0.5rem 1.25rem;
         border-radius: 50px;
         font-size: 0.85rem;
-        color: var(--color-accent);
+        color: #6bae6b;
         margin-bottom: 2rem;
     }
 
@@ -55,269 +55,170 @@
         line-height: 1.8;
     }
 
-    /* Payment Section */
-    .payment-section {
+    /* Collection Complete Section */
+    .collection-complete-section {
         padding: 4rem 0;
     }
 
-    .payment-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 3rem;
-        align-items: start;
-    }
-
-    .payment-qr-card {
-        background: var(--color-bg-card);
+    .collection-complete-card {
+        max-width: 800px;
+        margin: 0 auto;
+        background: linear-gradient(135deg, var(--color-bg-card), rgba(107, 174, 107, 0.1));
         border-radius: 24px;
-        padding: 2.5rem;
-        border: 1px solid var(--color-border);
+        padding: 3rem;
+        border: 1px solid rgba(107, 174, 107, 0.3);
         text-align: center;
+        position: relative;
+        overflow: hidden;
     }
 
-    .payment-qr-title {
-        font-family: var(--font-display);
-        font-size: 1.5rem;
-        margin-bottom: 1.5rem;
-        color: var(--color-accent);
+    .collection-complete-card::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(ellipse at center, rgba(107, 174, 107, 0.05) 0%, transparent 50%);
+        animation: rotate 30s linear infinite;
     }
 
-    .payment-qr-image {
-        width: 280px;
-        height: 280px;
-        margin: 0 auto 1.5rem;
-        background: #fff;
-        border-radius: 16px;
-        padding: 1rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
     }
 
-    .payment-qr-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
+    .collection-complete-content {
+        position: relative;
+        z-index: 1;
     }
 
-    .payment-qr-hint {
-        color: var(--color-text-muted);
-        font-size: 0.9rem;
-    }
-
-    /* Details Card */
-    .payment-details-card {
-        background: var(--color-bg-card);
-        border-radius: 24px;
-        padding: 2.5rem;
-        border: 1px solid var(--color-border);
-    }
-
-    .payment-details-title {
-        font-family: var(--font-display);
-        font-size: 1.5rem;
-        margin-bottom: 1.5rem;
-        color: var(--color-accent);
-    }
-
-    .payment-recipient {
-        background: var(--color-bg-medium);
-        border-radius: 12px;
-        padding: 1.25rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .payment-recipient-name {
-        font-family: var(--font-display);
-        font-size: 1.2rem;
-        margin-bottom: 0.5rem;
-        color: var(--color-text);
-    }
-
-    .payment-recipient-phone {
-        color: var(--color-accent);
-        font-size: 1.1rem;
-    }
-
-    .payment-details-list {
-        list-style: none;
-    }
-
-    .payment-details-item {
-        display: flex;
-        justify-content: space-between;
-        padding: 0.75rem 0;
-        border-bottom: 1px solid var(--color-border);
-    }
-
-    .payment-details-item:last-child {
-        border-bottom: none;
-    }
-
-    .payment-details-label {
-        color: var(--color-text-muted);
-        font-size: 0.9rem;
-    }
-
-    .payment-details-value {
-        color: var(--color-text);
-        font-size: 0.95rem;
-        text-align: right;
-        word-break: break-all;
-        margin-left: 1rem;
-        font-family: 'Courier New', monospace;
-    }
-
-    .copy-btn {
-        background: none;
-        border: none;
-        color: var(--color-accent);
-        cursor: pointer;
-        font-size: 0.85rem;
-        padding: 0.25rem 0.5rem;
-        margin-left: 0.5rem;
-        border-radius: 4px;
-        transition: all 0.3s ease;
-    }
-
-    .copy-btn:hover {
-        background: rgba(201, 168, 108, 0.2);
-    }
-
-    /* Alternative Payment Section */
-    .alt-payment-section {
-        padding: 4rem 0;
-        border-top: 1px solid var(--color-border);
-    }
-
-    .alt-payment-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-        margin-top: 2rem;
-    }
-
-    .alt-payment-card {
-        background: var(--color-bg-card);
-        border-radius: 20px;
-        padding: 2.5rem;
-        border: 1px solid var(--color-border);
-        text-align: center;
-        transition: all 0.3s ease;
-    }
-
-    .alt-payment-card:hover {
-        border-color: var(--color-accent);
-        transform: translateY(-5px);
-    }
-
-    .alt-payment-icon {
-        width: 70px;
-        height: 70px;
-        margin: 0 auto 1.5rem;
-        background: var(--color-bg-medium);
+    .collection-complete-icon {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 2rem;
+        background: linear-gradient(135deg, rgba(107, 174, 107, 0.2), rgba(107, 174, 107, 0.1));
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
+        font-size: 3rem;
+        border: 2px solid rgba(107, 174, 107, 0.3);
     }
 
-    .alt-payment-icon svg {
-        width: 35px;
-        height: 35px;
-    }
-
-    .alt-payment-card h3 {
+    .collection-complete-title {
         font-family: var(--font-display);
-        font-size: 1.3rem;
-        margin-bottom: 0.5rem;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: #6bae6b;
+    }
+
+    .collection-complete-text {
+        color: var(--color-text-muted);
+        font-size: 1.15rem;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .collection-complete-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light));
+        color: var(--color-bg-dark);
+        padding: 1rem 2rem;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .collection-complete-cta:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(201, 168, 108, 0.3);
+    }
+
+    .collection-complete-cta svg {
+        width: 24px;
+        height: 24px;
+        fill: currentColor;
+    }
+
+    /* Event Info Card */
+    .event-info-section {
+        padding: 4rem 0;
+    }
+
+    .event-info-card {
+        max-width: 900px;
+        margin: 0 auto;
+        background: var(--color-bg-card);
+        border-radius: 24px;
+        padding: 2.5rem;
+        border: 1px solid var(--color-border);
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .event-date-block {
+        background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light));
+        border-radius: 16px;
+        padding: 1.5rem 2rem;
+        text-align: center;
+        color: var(--color-bg-dark);
+    }
+
+    .event-date-day {
+        font-family: var(--font-display);
+        font-size: 3.5rem;
+        font-weight: 700;
+        line-height: 1;
+    }
+
+    .event-date-month {
+        font-size: 1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+
+    .event-date-time {
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+        opacity: 0.9;
+    }
+
+    .event-info-content h3 {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
         color: var(--color-text);
     }
 
-    .alt-payment-card p {
+    .event-info-content p {
         color: var(--color-text-muted);
-        font-size: 0.95rem;
         margin-bottom: 1rem;
+        line-height: 1.7;
     }
 
-    .alt-payment-phone {
+    .event-location {
         display: flex;
         align-items: center;
-        justify-content: center;
         gap: 0.5rem;
-        margin: 1rem 0;
-    }
-
-    .phone-number {
-        font-family: var(--font-display);
-        font-size: 1.4rem;
         color: var(--color-accent);
-        letter-spacing: 0.02em;
-    }
-
-    .alt-payment-recipient {
-        color: var(--color-text-muted);
         font-size: 0.95rem;
-        margin-top: 0.5rem;
     }
 
-    .alt-payment-recipient strong {
-        color: var(--color-text);
-    }
-
-    @media (max-width: 768px) {
-        .help-hero {
-            padding: 8rem 1.5rem 3rem;
-        }
-
-        .help-title {
-            font-size: 2.5rem;
-        }
-
-        .help-subtitle {
-            font-size: 1.1rem;
-        }
-
-        .payment-section {
-            padding: 3rem 0;
-        }
-
-        .payment-grid {
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-
-        .payment-qr-card {
-            padding: 2rem 1.5rem;
-        }
-
-        .payment-details-card {
-            padding: 2rem 1.5rem;
-        }
-
-        .alt-payment-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .needs-section {
-            padding: 3rem 0;
-        }
-
-        .needs-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .simple-section {
-            padding: 3rem 0;
-        }
-
-        .thanks-section {
-            padding: 3rem 0;
-        }
-
-        .thanks-card {
-            padding: 2rem 1.5rem;
-        }
+    .event-location svg {
+        width: 18px;
+        height: 18px;
+        fill: currentColor;
     }
 
     /* What We Need Section */
@@ -631,10 +532,6 @@
 
     /* Responsive */
     @media (max-width: 900px) {
-        .payment-grid {
-            grid-template-columns: 1fr;
-        }
-
         .help-cards-grid {
             grid-template-columns: 1fr;
         }
@@ -642,27 +539,61 @@
         .help-title {
             font-size: 2.5rem;
         }
+
+        .event-info-card {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+
+        .event-location {
+            justify-content: center;
+        }
     }
 
-    @media (max-width: 600px) {
-        .payment-qr-card,
-        .payment-details-card {
-            padding: 1.5rem;
+    @media (max-width: 768px) {
+        .help-hero {
+            padding: 8rem 1.5rem 3rem;
         }
 
-        .payment-qr-image {
-            width: 220px;
-            height: 220px;
+        .help-title {
+            font-size: 2.5rem;
         }
 
-        .payment-details-item {
-            flex-direction: column;
-            gap: 0.5rem;
+        .help-subtitle {
+            font-size: 1.1rem;
         }
 
-        .payment-details-value {
-            text-align: left;
-            margin-left: 0;
+        .collection-complete-section {
+            padding: 3rem 0;
+        }
+
+        .collection-complete-card {
+            padding: 2rem 1.5rem;
+            margin: 0;
+        }
+
+        .collection-complete-title {
+            font-size: 1.6rem;
+        }
+
+        .needs-section {
+            padding: 3rem 0;
+        }
+
+        .needs-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .other-help-section {
+            padding: 3rem 0;
+        }
+
+        .thank-you-section {
+            padding: 3rem 0;
+        }
+
+        .thank-you-card {
+            padding: 2rem 1.5rem;
         }
     }
 </style>
@@ -673,116 +604,53 @@
     <section class="help-hero">
         <div class="help-hero-content">
             <div class="help-badge">
-                <span>💝</span>
-                Поддержите проект
+                <span>✓</span>
+                Сбор завершён
             </div>
             <h1 class="help-title">Как помочь проекту</h1>
             <p class="help-subtitle">
                 «Голоса Единства» — некоммерческий культурный проект. 
-                Ваша поддержка поможет нам создать аудиобиблиотеку народных сказок России.
+                Благодарим всех, кто поддержал нас!
             </p>
         </div>
     </section>
 
-    <!-- Payment Section -->
-    <section class="payment-section container">
-        <div class="payment-grid">
-            <!-- QR Code -->
-            <div class="payment-qr-card">
-                <h2 class="payment-qr-title">Перевод по QR-коду</h2>
-                <div class="payment-qr-image">
-                    <img src="/img/qr-payment.jpg" alt="QR-код для оплаты">
-                </div>
-                <p class="payment-qr-hint">Отсканируйте QR-код в приложении вашего банка</p>
-            </div>
-
-            <!-- Bank Details -->
-            <div class="payment-details-card">
-                <h2 class="payment-details-title">Банковские реквизиты</h2>
-                
-                <div class="payment-recipient">
-                    <div class="payment-recipient-name">Белова Елена Валерьевна</div>
-                    <div class="payment-recipient-phone">+7 (921) 852-44-04</div>
-                </div>
-
-                <ul class="payment-details-list">
-                    <li class="payment-details-item">
-                        <span class="payment-details-label">Номер счёта</span>
-                        <span class="payment-details-value">
-                            40817810205611453252
-                            <button class="copy-btn" onclick="copyToClipboard('40817810205611453252')">📋</button>
-                        </span>
-                    </li>
-                    <li class="payment-details-item">
-                        <span class="payment-details-label">Банк получателя</span>
-                        <span class="payment-details-value">АО «Альфа-Банк», г. Москва</span>
-                    </li>
-                    <li class="payment-details-item">
-                        <span class="payment-details-label">БИК</span>
-                        <span class="payment-details-value">
-                            044525593
-                            <button class="copy-btn" onclick="copyToClipboard('044525593')">📋</button>
-                        </span>
-                    </li>
-                    <li class="payment-details-item">
-                        <span class="payment-details-label">ИНН Банка</span>
-                        <span class="payment-details-value">7728168971</span>
-                    </li>
-                    <li class="payment-details-item">
-                        <span class="payment-details-label">КПП Банка</span>
-                        <span class="payment-details-value">770801001</span>
-                    </li>
-                    <li class="payment-details-item">
-                        <span class="payment-details-label">Кор. счёт</span>
-                        <span class="payment-details-value">
-                            30101810200000000593
-                            <button class="copy-btn" onclick="copyToClipboard('30101810200000000593')">📋</button>
-                        </span>
-                    </li>
-                </ul>
+    <!-- Collection Complete Section -->
+    <section class="collection-complete-section container">
+        <div class="collection-complete-card">
+            <div class="collection-complete-content">
+                <div class="collection-complete-icon">🎉</div>
+                <h2 class="collection-complete-title">Сбор средств завершён!</h2>
+                <p class="collection-complete-text">
+                    Благодарим всех, кто поддержал наш проект! Благодаря вашей помощи мы смогли 
+                    записать 15 прекрасных сказок народов России. Теперь приглашаем вас на 
+                    торжественное открытие проекта!
+                </p>
+                <a href="{{ route('opening') }}" class="collection-complete-cta">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    Подробнее о мероприятии
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Alternative Payment Section -->
-    <section class="alt-payment-section container">
-        <h2 class="section-title" style="text-align: center;">Альтернативные способы</h2>
-        <p class="section-subtitle" style="text-align: center;">Выберите удобный для вас способ перевода</p>
-
-        <div class="alt-payment-grid">
-            <!-- Т-Банк -->
-            <div class="alt-payment-card">
-                <div class="alt-payment-icon">
-                    <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="8" y="15" width="34" height="22" rx="3" stroke="#c9a86c" stroke-width="2" fill="none"/>
-                        <path d="M8 22 L42 22" stroke="#6b8cae" stroke-width="2"/>
-                        <rect x="12" y="28" width="12" height="4" rx="1" fill="#c9a86c" opacity="0.5"/>
-                    </svg>
-                </div>
-                <h3>Т-Банк (Тинькофф)</h3>
-                <p>Быстрый перевод через платёжную страницу</p>
-                <a href="https://www.tbank.ru/cf/3EmKMvrkg8t" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">
-                    Перевести через Т-Банк →
-                </a>
+    <!-- Event Info Section -->
+    <section class="event-info-section container">
+        <div class="event-info-card">
+            <div class="event-date-block">
+                <div class="event-date-day">4</div>
+                <div class="event-date-month">января</div>
+                <div class="event-date-time">13:00 — 16:00</div>
             </div>
-
-            <!-- По номеру телефона -->
-            <div class="alt-payment-card">
-                <div class="alt-payment-icon">
-                    <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="15" y="8" width="20" height="34" rx="3" stroke="#c9a86c" stroke-width="2" fill="none"/>
-                        <circle cx="25" cy="36" r="2" fill="#6b8cae"/>
-                        <path d="M20 12 L30 12" stroke="#6b8cae" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                </div>
-                <h3>Перевод по номеру телефона</h3>
-                <p>Переведите через приложение любого банка</p>
-                <div class="alt-payment-phone">
-                    <span class="phone-number">+7 916 023-02-02</span>
-                    <button class="copy-btn" onclick="copyToClipboard('+79160230202')">📋</button>
-                </div>
-                <div class="alt-payment-recipient">
-                    Получатель: <strong>Алексей Рахманов</strong>
+            <div class="event-info-content">
+                <h3>Торжественное открытие проекта</h3>
+                <p>
+                    Приглашаем вас на праздник, где вы сможете первыми услышать записанные сказки, 
+                    познакомиться с командой проекта и принять участие в творческих мастер-классах.
+                </p>
+                <div class="event-location">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    Территория развития «Гранд Каньон», 3 этаж, «Дивный город»
                 </div>
             </div>
         </div>
@@ -790,8 +658,8 @@
 
     <!-- What We Need Section -->
     <section class="needs-section container">
-        <h2 class="section-title" style="text-align: center;">Что нам нужно</h2>
-        <p class="section-subtitle" style="text-align: center;">Помимо финансовой поддержки, проекту требуются ресурсы и специалисты</p>
+        <h2 class="section-title" style="text-align: center;">Что ещё нам нужно</h2>
+        <p class="section-subtitle" style="text-align: center;">Проекту по-прежнему требуются ресурсы и специалисты</p>
 
         <div class="needs-grid">
             <!-- Студии звукозаписи -->
@@ -983,41 +851,10 @@
             <div class="thank-you-icon">🙏</div>
             <h2 class="thank-you-title">Благодарим за поддержку!</h2>
             <p class="thank-you-text">
-                Каждый вклад приближает нас к цели — создать бесплатную аудиобиблиотеку 
+                Каждый вклад приблизил нас к цели — создать бесплатную аудиобиблиотеку 
                 народных сказок для всех жителей России. Вместе мы сохраним культурное 
                 наследие для будущих поколений.
             </p>
         </div>
     </section>
 @endsection
-
-@section('scripts')
-<script>
-function copyToClipboard(text) {
-    navigator.clipboard.writeText(text).then(() => {
-        // Показываем уведомление
-        const notification = document.createElement('div');
-        notification.textContent = 'Скопировано!';
-        notification.style.cssText = `
-            position: fixed;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--color-accent);
-            color: var(--color-bg-dark);
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 600;
-            z-index: 1000;
-            animation: fadeInUp 0.3s ease;
-        `;
-        document.body.appendChild(notification);
-        
-        setTimeout(() => {
-            notification.remove();
-        }, 2000);
-    });
-}
-</script>
-@endsection
-
