@@ -1198,11 +1198,7 @@
             <div class="supported-companies">
                 <div class="supported-company">
                     <div class="supported-logo">
-                        <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="25" cy="25" r="20" stroke="#c9a86c" stroke-width="2" fill="none"/>
-                            <path d="M18 20 L25 15 L32 20 L32 35 L18 35 Z" stroke="#6b8cae" stroke-width="2" fill="none"/>
-                            <circle cx="25" cy="27" r="4" fill="#c9a86c"/>
-                        </svg>
+                        <img src="/img/partners/paradox.svg" alt="Парадокс">
                     </div>
                     <div class="supported-info">
                         <span class="supported-name">Тренинговая компания «Парадокс»</span>
