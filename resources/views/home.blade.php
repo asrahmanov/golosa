@@ -635,13 +635,15 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         gap: 1.25rem;
         background: var(--color-bg-card);
         padding: 2rem 2.5rem;
         border-radius: 20px;
         border: 1px solid var(--color-border);
         transition: all 0.3s ease;
-        min-width: 220px;
+        min-width: 280px;
+        min-height: 320px;
     }
 
     .supported-company:hover {
@@ -1001,6 +1003,7 @@
             width: 100%;
             padding: 1.5rem 2rem;
             min-width: auto;
+            min-height: 250px;
         }
 
         .supported-logo {
