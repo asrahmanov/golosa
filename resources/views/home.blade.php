@@ -651,8 +651,8 @@
     }
 
     .supported-logo {
-        width: 100px;
-        height: 100px;
+        width: 200px;
+        height: 200px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1004,8 +1004,8 @@
         }
 
         .supported-logo {
-            width: 80px;
-            height: 80px;
+            width: 150px;
+            height: 150px;
         }
 
         .supported-name {
