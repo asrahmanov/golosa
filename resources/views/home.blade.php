@@ -623,12 +623,20 @@
         margin-bottom: 1.5rem;
     }
 
+    .supported-companies {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
     .supported-company {
         display: inline-flex;
         align-items: center;
         gap: 1rem;
         background: var(--color-bg-card);
-        padding: 1rem 2rem;
+        padding: 1rem 1.5rem;
         border-radius: 16px;
         border: 1px solid var(--color-border);
         transition: all 0.3s ease;
@@ -653,13 +661,20 @@
         height: 100%;
     }
 
+    .supported-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 8px;
+    }
+
     .supported-info {
         text-align: left;
     }
 
     .supported-name {
         font-family: var(--font-display);
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         color: var(--color-text);
     }
 
@@ -973,6 +988,20 @@
         .supported-section {
             padding: 3rem 0;
         }
+
+        .supported-companies {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .supported-company {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .supported-name {
+            font-size: 0.95rem;
+        }
     }
 </style>
 @endsection
@@ -1157,16 +1186,26 @@
     <section class="supported-section container fade-in">
         <div class="supported-content">
             <p class="supported-label">При поддержке</p>
-            <div class="supported-company">
-                <div class="supported-logo">
-                    <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="25" cy="25" r="20" stroke="#c9a86c" stroke-width="2" fill="none"/>
-                        <path d="M18 20 L25 15 L32 20 L32 35 L18 35 Z" stroke="#6b8cae" stroke-width="2" fill="none"/>
-                        <circle cx="25" cy="27" r="4" fill="#c9a86c"/>
-                    </svg>
+            <div class="supported-companies">
+                <div class="supported-company">
+                    <div class="supported-logo">
+                        <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="25" cy="25" r="20" stroke="#c9a86c" stroke-width="2" fill="none"/>
+                            <path d="M18 20 L25 15 L32 20 L32 35 L18 35 Z" stroke="#6b8cae" stroke-width="2" fill="none"/>
+                            <circle cx="25" cy="27" r="4" fill="#c9a86c"/>
+                        </svg>
+                    </div>
+                    <div class="supported-info">
+                        <span class="supported-name">Тренинговая компания «Парадокс»</span>
+                    </div>
                 </div>
-                <div class="supported-info">
-                    <span class="supported-name">Тренинговая компания «Парадокс»</span>
+                <div class="supported-company">
+                    <div class="supported-logo">
+                        <img src="/img/partners/47-media.png" alt="47 Медиа">
+                    </div>
+                    <div class="supported-info">
+                        <span class="supported-name">47 Медиа</span>
+                    </div>
                 </div>
             </div>
         </div>
