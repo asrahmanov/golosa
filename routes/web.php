@@ -24,6 +24,9 @@ Route::get('/instructions', [HomeController::class, 'instructions'])->name('inst
 // Торжественное открытие
 Route::get('/opening', [HomeController::class, 'opening'])->name('opening');
 
+// Результаты проекта
+Route::get('/results', [HomeController::class, 'results'])->name('results');
+
 // Сказки
 Route::get('/tales', [TaleController::class, 'index'])->name('tales.index');
 Route::get('/tales/{tale}', [TaleController::class, 'show'])->name('tales.show');

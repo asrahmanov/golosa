@@ -65,5 +65,10 @@ class HomeController extends Controller
     {
         return view('opening');
     }
+
+    public function results(): View
+    {
+        return view('results');
+    }
 }
 
