@@ -117,12 +117,12 @@
         z-index: 100;
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 1rem;
     }
 
     .scroll-dot {
-        width: 14px;
-        height: 14px;
+        width: 12px;
+        height: 12px;
         border-radius: 50%;
         background: rgba(201, 168, 108, 0.2);
         cursor: pointer;
@@ -133,17 +133,8 @@
     .scroll-dot::before {
         content: '';
         position: absolute;
-        inset: -6px;
+        inset: -5px;
         border: 2px solid transparent;
-        border-radius: 50%;
-        transition: all 0.5s ease;
-    }
-
-    .scroll-dot::after {
-        content: '';
-        position: absolute;
-        inset: -12px;
-        border: 1px solid transparent;
         border-radius: 50%;
         transition: all 0.5s ease;
     }
@@ -157,11 +148,6 @@
     .scroll-dot.active::before {
         border-color: rgba(201, 168, 108, 0.5);
         animation: dotPulse 2s ease-in-out infinite;
-    }
-
-    .scroll-dot.active::after {
-        border-color: rgba(201, 168, 108, 0.2);
-        animation: dotPulse 2s ease-in-out infinite 0.3s;
     }
 
     @keyframes dotPulse {
@@ -330,9 +316,9 @@
     /* Custom Icons with Animations */
     .stat-icon-container {
         position: relative;
-        width: 180px;
-        height: 180px;
-        margin: 0 auto 3rem;
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 2rem;
     }
 
     .stat-icon {
@@ -343,8 +329,8 @@
     }
 
     .stat-icon svg {
-        width: 80px;
-        height: 80px;
+        width: 70px;
+        height: 70px;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -378,14 +364,14 @@
     }
 
     .icon-ring-2 {
-        inset: -20px;
+        inset: -15px;
         border-style: dashed;
         animation: ringRotate 15s linear infinite reverse;
         opacity: 0.5;
     }
 
     .icon-ring-3 {
-        inset: -40px;
+        inset: -30px;
         border-style: dotted;
         animation: ringRotate 20s linear infinite;
         opacity: 0.3;
@@ -398,7 +384,7 @@
 
     .icon-glow {
         position: absolute;
-        inset: -30px;
+        inset: -20px;
         background: radial-gradient(circle, rgba(201, 168, 108, 0.4) 0%, transparent 70%);
         border-radius: 50%;
         animation: glowPulse 3s ease-in-out infinite;
@@ -410,11 +396,11 @@
     }
 
     .stat-label {
-        font-size: 1.1rem;
+        font-size: 1rem;
         text-transform: uppercase;
         letter-spacing: 0.3em;
         color: var(--color-accent);
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
         opacity: 0;
         transform: translateY(30px);
         transition: all 0.8s ease 0.2s;
@@ -428,12 +414,12 @@
     .stat-value-container {
         position: relative;
         display: inline-block;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
     }
 
     .stat-value {
         font-family: var(--font-display);
-        font-size: 12rem;
+        font-size: 10rem;
         font-weight: 700;
         line-height: 1;
         background: linear-gradient(180deg, var(--color-text) 0%, var(--color-accent) 50%, var(--color-primary-light) 100%);
@@ -445,7 +431,6 @@
         opacity: 0;
         transform: scale(0.5);
         transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.4s;
-        text-shadow: none;
         filter: drop-shadow(0 0 60px rgba(201, 168, 108, 0.3));
     }
 
@@ -474,15 +459,22 @@
     }
 
     .stat-suffix {
-        font-size: 5rem;
+        font-size: 4rem;
         vertical-align: top;
         margin-left: 0.5rem;
     }
 
+    .stat-prefix {
+        font-size: 3rem;
+        vertical-align: top;
+        margin-right: 0.25rem;
+        opacity: 0.7;
+    }
+
     .stat-description {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         color: var(--color-text-muted);
-        margin-bottom: 2.5rem;
+        margin-bottom: 2rem;
         opacity: 0;
         transform: translateY(30px);
         transition: all 0.8s ease 0.6s;
@@ -499,9 +491,9 @@
         gap: 2rem;
         background: rgba(35, 47, 66, 0.8);
         border: 1px solid var(--color-border);
-        padding: 1.5rem 3rem;
+        padding: 1.25rem 2.5rem;
         border-radius: 60px;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         backdrop-filter: blur(10px);
         opacity: 0;
         transform: translateY(30px);
@@ -533,9 +525,9 @@
     /* Progress Ring */
     .progress-ring-container {
         position: relative;
-        width: 250px;
-        height: 250px;
-        margin: 3rem auto;
+        width: 220px;
+        height: 220px;
+        margin: 2rem auto;
         opacity: 0;
         transform: scale(0.8) rotate(-90deg);
         transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.6s;
@@ -557,8 +549,8 @@
         stroke: url(#progressGradient);
         stroke-width: 12;
         stroke-linecap: round;
-        stroke-dasharray: 628;
-        stroke-dashoffset: 628;
+        stroke-dasharray: 565;
+        stroke-dashoffset: 565;
         transition: stroke-dashoffset 3s cubic-bezier(0.16, 1, 0.3, 1);
         filter: drop-shadow(0 0 15px rgba(201, 168, 108, 0.5));
     }
@@ -574,14 +566,14 @@
 
     .progress-ring-value {
         font-family: var(--font-display);
-        font-size: 4rem;
+        font-size: 3.5rem;
         font-weight: 700;
         color: var(--color-accent);
         text-shadow: 0 0 30px rgba(201, 168, 108, 0.5);
     }
 
     .progress-ring-label {
-        font-size: 1rem;
+        font-size: 0.9rem;
         color: var(--color-text-muted);
         text-transform: uppercase;
         letter-spacing: 0.2em;
@@ -594,11 +586,11 @@
         gap: 1rem;
         background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
         color: white;
-        padding: 1.25rem 2.5rem;
+        padding: 1rem 2rem;
         border-radius: 60px;
         font-weight: 700;
-        font-size: 1.3rem;
-        margin-top: 2rem;
+        font-size: 1.2rem;
+        margin-top: 1.5rem;
         box-shadow: 0 10px 50px rgba(34, 197, 94, 0.4);
         opacity: 0;
         transform: scale(0.8);
@@ -617,8 +609,8 @@
     }
 
     .success-icon {
-        width: 28px;
-        height: 28px;
+        width: 26px;
+        height: 26px;
         background: white;
         border-radius: 50%;
         display: flex;
@@ -633,10 +625,94 @@
     }
 
     .success-icon svg {
-        width: 16px;
-        height: 16px;
+        width: 14px;
+        height: 14px;
         stroke: #22c55e;
         stroke-width: 3;
+    }
+
+    /* Multi-stat Grid */
+    .multi-stat-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+        max-width: 1200px;
+        width: 100%;
+    }
+
+    .mini-stat-card {
+        background: rgba(35, 47, 66, 0.6);
+        border: 1px solid var(--color-border);
+        border-radius: 24px;
+        padding: 2rem 1.5rem;
+        text-align: center;
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        opacity: 0;
+        transform: translateY(60px) scale(0.9);
+        backdrop-filter: blur(10px);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .mini-stat-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(201, 168, 108, 0.1), transparent);
+        transition: left 0.8s ease;
+    }
+
+    .mini-stat-card:hover::before {
+        left: 100%;
+    }
+
+    .mini-stat-card.visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    .mini-stat-card:hover {
+        transform: translateY(-10px) scale(1.03);
+        border-color: var(--color-accent);
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3), 0 0 40px rgba(201, 168, 108, 0.15);
+    }
+
+    .mini-stat-icon {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 1.5rem;
+        background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 30px rgba(201, 168, 108, 0.3);
+    }
+
+    .mini-stat-icon svg {
+        width: 28px;
+        height: 28px;
+        stroke: var(--color-bg-dark);
+        fill: none;
+        stroke-width: 2;
+    }
+
+    .mini-stat-value {
+        font-family: var(--font-display);
+        font-size: 2.8rem;
+        font-weight: 700;
+        color: var(--color-text);
+        margin-bottom: 0.5rem;
+        text-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    }
+
+    .mini-stat-label {
+        font-size: 0.9rem;
+        color: var(--color-text-muted);
+        line-height: 1.4;
     }
 
     /* Media Section */
@@ -647,16 +723,16 @@
     .media-grid {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
-        gap: 2rem;
-        max-width: 1400px;
+        gap: 1.5rem;
+        max-width: 1200px;
         width: 100%;
     }
 
     .media-card {
         background: rgba(35, 47, 66, 0.6);
         border: 1px solid var(--color-border);
-        border-radius: 24px;
-        padding: 2.5rem 2rem;
+        border-radius: 20px;
+        padding: 2rem 1.5rem;
         text-align: center;
         transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         opacity: 0;
@@ -687,15 +763,15 @@
     }
 
     .media-card:hover {
-        transform: translateY(-15px) scale(1.05);
+        transform: translateY(-12px) scale(1.05);
         border-color: var(--color-accent);
-        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4), 0 0 50px rgba(201, 168, 108, 0.2);
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(201, 168, 108, 0.2);
     }
 
     .media-icon {
-        width: 80px;
-        height: 80px;
-        margin: 0 auto 2rem;
+        width: 70px;
+        height: 70px;
+        margin: 0 auto 1.5rem;
         background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
         border-radius: 50%;
         display: flex;
@@ -720,8 +796,8 @@
     }
 
     .media-icon svg {
-        width: 36px;
-        height: 36px;
+        width: 32px;
+        height: 32px;
         stroke: var(--color-bg-dark);
         fill: none;
         stroke-width: 2;
@@ -729,18 +805,18 @@
 
     .media-count {
         font-family: var(--font-display);
-        font-size: 3.5rem;
+        font-size: 3rem;
         font-weight: 700;
         color: var(--color-text);
-        margin-bottom: 0.75rem;
+        margin-bottom: 0.5rem;
         text-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
     }
 
     .media-label {
-        font-size: 1rem;
+        font-size: 0.9rem;
         color: var(--color-text-muted);
         text-transform: uppercase;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
     }
 
     /* Links Section */
@@ -755,10 +831,10 @@
 
     .links-title {
         font-family: var(--font-display);
-        font-size: 3.5rem;
+        font-size: 3rem;
         font-weight: 600;
         text-align: center;
-        margin-bottom: 4rem;
+        margin-bottom: 3rem;
         background: linear-gradient(135deg, var(--color-text) 0%, var(--color-accent) 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -776,17 +852,17 @@
     .links-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
+        gap: 1.25rem;
     }
 
     .link-card {
         display: flex;
         align-items: center;
-        gap: 1.5rem;
+        gap: 1.25rem;
         background: rgba(35, 47, 66, 0.6);
         border: 1px solid var(--color-border);
-        border-radius: 20px;
-        padding: 1.75rem;
+        border-radius: 16px;
+        padding: 1.5rem;
         text-decoration: none;
         transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         opacity: 0;
@@ -816,13 +892,13 @@
 
     .link-card:hover {
         border-color: var(--color-accent);
-        transform: translateX(15px) scale(1.02);
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 30px rgba(201, 168, 108, 0.1);
+        transform: translateX(12px) scale(1.02);
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3), 0 0 25px rgba(201, 168, 108, 0.1);
     }
 
     .link-status {
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
         background: linear-gradient(135deg, #22c55e, #4ade80);
         border-radius: 50%;
         display: flex;
@@ -835,8 +911,8 @@
     }
 
     .link-status svg {
-        width: 24px;
-        height: 24px;
+        width: 22px;
+        height: 22px;
         stroke: white;
         stroke-width: 3;
     }
@@ -849,19 +925,19 @@
 
     .link-name {
         font-weight: 700;
-        font-size: 1.1rem;
+        font-size: 1.05rem;
         color: var(--color-text);
-        margin-bottom: 0.4rem;
+        margin-bottom: 0.3rem;
     }
 
     .link-url {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         color: var(--color-primary-light);
     }
 
     .link-arrow {
-        width: 28px;
-        height: 28px;
+        width: 24px;
+        height: 24px;
         stroke: var(--color-text-muted);
         transition: all 0.4s ease;
         position: relative;
@@ -870,7 +946,7 @@
 
     .link-card:hover .link-arrow {
         stroke: var(--color-accent);
-        transform: translateX(8px);
+        transform: translateX(6px);
     }
 
     /* CTA Section */
@@ -885,9 +961,9 @@
 
     .cta-title {
         font-family: var(--font-display);
-        font-size: 4.5rem;
+        font-size: 4rem;
         font-weight: 700;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
         background: linear-gradient(135deg, var(--color-text) 0%, var(--color-accent) 50%, var(--color-primary-light) 100%);
         background-size: 200% 200%;
         -webkit-background-clip: text;
@@ -905,9 +981,9 @@
     }
 
     .cta-text {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         color: var(--color-text-muted);
-        margin-bottom: 3rem;
+        margin-bottom: 2.5rem;
         line-height: 1.6;
         opacity: 0;
         transform: translateY(30px);
@@ -921,7 +997,7 @@
 
     .cta-buttons {
         display: flex;
-        gap: 2rem;
+        gap: 1.5rem;
         justify-content: center;
         flex-wrap: wrap;
         opacity: 0;
@@ -987,11 +1063,21 @@
         .media-grid {
             grid-template-columns: repeat(3, 1fr);
         }
+        
+        .multi-stat-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 
     @media (max-width: 768px) {
         .scroll-indicator {
             right: 1rem;
+            gap: 0.75rem;
+        }
+
+        .scroll-dot {
+            width: 10px;
+            height: 10px;
         }
 
         .hero-title {
@@ -1003,21 +1089,21 @@
         }
 
         .stat-value {
-            font-size: 6rem;
+            font-size: 5rem;
         }
 
         .stat-suffix {
-            font-size: 2.5rem;
+            font-size: 2rem;
         }
 
         .stat-icon-container {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
         }
 
         .stat-icon svg {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
         }
 
         .media-grid {
@@ -1030,12 +1116,25 @@
         }
 
         .media-count {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
         }
 
         .media-icon {
-            width: 60px;
-            height: 60px;
+            width: 55px;
+            height: 55px;
+        }
+
+        .multi-stat-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .mini-stat-card {
+            padding: 1.5rem 1rem;
+        }
+
+        .mini-stat-value {
+            font-size: 2rem;
         }
 
         .links-grid {
@@ -1043,7 +1142,7 @@
         }
 
         .links-title {
-            font-size: 2.5rem;
+            font-size: 2rem;
         }
 
         .cta-title {
@@ -1055,18 +1154,19 @@
         }
 
         .progress-ring-container {
-            width: 180px;
-            height: 180px;
+            width: 160px;
+            height: 160px;
         }
 
         .progress-ring-value {
-            font-size: 3rem;
+            font-size: 2.5rem;
         }
 
         .stat-extra {
             flex-direction: column;
-            gap: 0.75rem;
-            padding: 1.25rem 2rem;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
         }
     }
 
@@ -1075,8 +1175,20 @@
             grid-template-columns: 1fr 1fr;
         }
 
+        .multi-stat-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+
         .stat-value {
             font-size: 4rem;
+        }
+
+        .mini-stat-value {
+            font-size: 1.8rem;
+        }
+
+        .mini-stat-label {
+            font-size: 0.8rem;
         }
     }
 </style>
@@ -1105,6 +1217,7 @@
         <div class="scroll-dot" data-section="4"></div>
         <div class="scroll-dot" data-section="5"></div>
         <div class="scroll-dot" data-section="6"></div>
+        <div class="scroll-dot" data-section="7"></div>
     </div>
 
     <!-- Hero -->
@@ -1124,7 +1237,7 @@
         </div>
     </section>
 
-    <!-- Listens -->
+    <!-- Team -->
     <section class="result-section" data-index="1">
         <div class="stat-content hidden">
             <div class="stat-icon-container">
@@ -1134,23 +1247,21 @@
                 <div class="icon-ring icon-ring-3"></div>
                 <div class="stat-icon">
                     <svg viewBox="0 0 24 24">
-                        <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
-                        <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
                     </svg>
                 </div>
             </div>
-            <div class="stat-label">Прослушиваний</div>
+            <div class="stat-label">Команда проекта</div>
             <div class="stat-value-container">
                 <div class="stat-value-glow"></div>
                 <div class="stat-value">
-                    <span data-counter="3246">0</span>
+                    <span data-counter="26">0</span>
                 </div>
             </div>
-            <div class="stat-description">аудиосказок прослушано</div>
-            <div class="stat-extra">
-                <span>План: 1 107</span>
-                <span class="stat-extra-highlight">Выполнено на 293%</span>
-            </div>
+            <div class="stat-description">человек объединились для создания проекта</div>
         </div>
     </section>
 
@@ -1170,7 +1281,7 @@
                     </svg>
                 </div>
             </div>
-            <div class="stat-label">Собрано средств</div>
+            <div class="stat-label">Привлечено средств</div>
             <div class="stat-value-container">
                 <div class="stat-value-glow"></div>
                 <div class="stat-value">
@@ -1180,7 +1291,7 @@
             </div>
             <div class="stat-description">из 250 000 ₽ цели</div>
             <div class="progress-ring-container">
-                <svg width="250" height="250" style="transform: rotate(-90deg);">
+                <svg width="220" height="220" style="transform: rotate(-90deg);">
                     <defs>
                         <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                             <stop offset="0%" stop-color="#22c55e"/>
@@ -1188,8 +1299,8 @@
                             <stop offset="100%" stop-color="var(--color-accent)"/>
                         </linearGradient>
                     </defs>
-                    <circle class="progress-ring-bg" cx="125" cy="125" r="100"/>
-                    <circle class="progress-ring-fill" cx="125" cy="125" r="100" data-progress="103"/>
+                    <circle class="progress-ring-bg" cx="110" cy="110" r="90"/>
+                    <circle class="progress-ring-fill" cx="110" cy="110" r="90" data-progress="103"/>
                 </svg>
                 <div class="progress-ring-text">
                     <div class="progress-ring-value">103%</div>
@@ -1207,42 +1318,115 @@
         </div>
     </section>
 
-    <!-- Blogger Reach -->
+    <!-- Tales Stats -->
     <section class="result-section" data-index="3">
         <div class="stat-content hidden">
-            <div class="stat-icon-container">
-                <div class="icon-glow"></div>
-                <div class="icon-ring"></div>
-                <div class="icon-ring icon-ring-2"></div>
-                <div class="icon-ring icon-ring-3"></div>
-                <div class="stat-icon">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                        <circle cx="9" cy="7" r="4"/>
-                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                    </svg>
+            <div class="stat-label" style="margin-bottom: 3rem; font-size: 1.2rem;">Сказки</div>
+            <div class="multi-stat-grid">
+                <div class="mini-stat-card">
+                    <div class="mini-stat-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                        </svg>
+                    </div>
+                    <div class="mini-stat-value"><span class="stat-prefix">></span><span data-counter="150">0</span></div>
+                    <div class="mini-stat-label">сказок прочитано</div>
+                </div>
+                <div class="mini-stat-card">
+                    <div class="mini-stat-icon">
+                        <svg viewBox="0 0 24 24">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                        </svg>
+                    </div>
+                    <div class="mini-stat-value" data-counter="16">0</div>
+                    <div class="mini-stat-label">сказок выпущено</div>
+                </div>
+                <div class="mini-stat-card">
+                    <div class="mini-stat-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
+                            <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+                        </svg>
+                    </div>
+                    <div class="mini-stat-value" data-counter="3246">0</div>
+                    <div class="mini-stat-label">прослушиваний</div>
+                </div>
+                <div class="mini-stat-card">
+                    <div class="mini-stat-icon">
+                        <svg viewBox="0 0 24 24">
+                            <line x1="12" y1="20" x2="12" y2="10"/>
+                            <line x1="18" y1="20" x2="18" y2="4"/>
+                            <line x1="6" y1="20" x2="6" y2="16"/>
+                        </svg>
+                    </div>
+                    <div class="mini-stat-value">293%</div>
+                    <div class="mini-stat-label">от плана</div>
                 </div>
             </div>
-            <div class="stat-label">Охват блогеров</div>
-            <div class="stat-value-container">
-                <div class="stat-value-glow"></div>
-                <div class="stat-value">
-                    <span data-counter="481000">0</span>
+        </div>
+    </section>
+
+    <!-- Events Stats -->
+    <section class="result-section" data-index="4">
+        <div class="stat-content hidden">
+            <div class="stat-label" style="margin-bottom: 3rem; font-size: 1.2rem;">Мероприятия и охват</div>
+            <div class="multi-stat-grid">
+                <div class="mini-stat-card">
+                    <div class="mini-stat-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <div class="mini-stat-value"><span class="stat-prefix">></span><span data-counter="700">0</span></div>
+                    <div class="mini-stat-label">посетителей мероприятия</div>
                 </div>
-            </div>
-            <div class="stat-description">подписчиков охвачено</div>
-            <div class="stat-extra">
-                <span>Блог «1001образ | Стиль»</span>
-                <span class="stat-extra-highlight">Катерина Красивова</span>
+                <div class="mini-stat-card">
+                    <div class="mini-stat-icon">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                    <div class="mini-stat-value"><span class="stat-prefix">></span><span data-counter="1000">0</span></div>
+                    <div class="mini-stat-label">флаеров роздано</div>
+                </div>
+                <div class="mini-stat-card">
+                    <div class="mini-stat-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"/>
+                            <polyline points="12 3 12 15"/>
+                            <polyline points="8 7 12 3 16 7"/>
+                            <rect x="4" y="12" width="16" height="2" rx="1"/>
+                        </svg>
+                    </div>
+                    <div class="mini-stat-value"><span class="stat-prefix">></span><span data-counter="500">0</span></div>
+                    <div class="mini-stat-label">подарков вручено</div>
+                </div>
+                <div class="mini-stat-card">
+                    <div class="mini-stat-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                        </svg>
+                    </div>
+                    <div class="mini-stat-value"><span class="stat-prefix">></span><span data-counter="15">0</span></div>
+                    <div class="mini-stat-label">благодарственных писем</div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Media Coverage -->
-    <section class="result-section media-section" data-index="4">
-        <div class="stat-content hidden" style="max-width: 1400px;">
-            <div class="stat-label" style="margin-bottom: 4rem; font-size: 1.3rem;">Медийное покрытие</div>
+    <section class="result-section media-section" data-index="5">
+        <div class="stat-content hidden" style="max-width: 1200px;">
+            <div class="stat-label" style="margin-bottom: 3rem; font-size: 1.2rem;">Медийное покрытие</div>
             <div class="media-grid">
                 <div class="media-card">
                     <div class="media-icon">
@@ -1294,7 +1478,7 @@
                             <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
                         </svg>
                     </div>
-                    <div class="media-count" data-counter="6">0</div>
+                    <div class="media-count" data-counter="5">0</div>
                     <div class="media-label">Интернет СМИ</div>
                 </div>
             </div>
@@ -1302,7 +1486,7 @@
     </section>
 
     <!-- Links -->
-    <section class="result-section links-section" data-index="5">
+    <section class="result-section links-section" data-index="6">
         <div class="links-content">
             <h2 class="links-title">Публикации в СМИ</h2>
             <div class="links-grid">
@@ -1371,7 +1555,7 @@
     </section>
 
     <!-- CTA -->
-    <section class="result-section cta-section" data-index="6">
+    <section class="result-section cta-section" data-index="7">
         <div class="cta-content">
             <h2 class="cta-title">Спасибо за поддержку!</h2>
             <p class="cta-text">Вместе мы сохраняем культурное наследие народов России для будущих поколений</p>
@@ -1426,20 +1610,12 @@
         function update(currentTime) {
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
-            
-            // Dramatic easing
             const easeProgress = 1 - Math.pow(1 - progress, 5);
-            
             const current = Math.floor(target * easeProgress);
             element.textContent = current.toLocaleString('ru-RU');
             
             if (progress < 1) {
                 requestAnimationFrame(update);
-            } else {
-                // Final value with subtle pulse
-                element.style.animation = 'none';
-                element.offsetHeight; // Trigger reflow
-                element.style.animation = 'valueGradient 3s ease infinite';
             }
         }
         
@@ -1448,7 +1624,7 @@
 
     // Animate progress ring
     function animateProgressRing(element, progress) {
-        const circumference = 2 * Math.PI * 100;
+        const circumference = 2 * Math.PI * 90;
         const offset = circumference - (progress / 100) * circumference;
         
         setTimeout(() => {
@@ -1473,7 +1649,6 @@
             piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
             container.appendChild(piece);
             
-            // Remove after animation
             setTimeout(() => piece.remove(), 5000);
         }
     }
@@ -1503,9 +1678,9 @@
                     setTimeout(() => {
                         content.querySelectorAll('[data-counter]').forEach(counter => {
                             const target = parseInt(counter.dataset.counter);
-                            animateCounter(counter, target, 3000);
+                            animateCounter(counter, target, 2500);
                         });
-                    }, 500);
+                    }, 400);
 
                     // Animate progress ring
                     const progressRing = content.querySelector('[data-progress]');
@@ -1515,9 +1690,21 @@
 
                     // Trigger confetti on fundraising section
                     if (index === 2) {
-                        setTimeout(createConfetti, 2000);
+                        setTimeout(createConfetti, 1800);
                     }
                 }
+
+                // Animate mini-stat cards
+                const miniCards = entry.target.querySelectorAll('.mini-stat-card');
+                miniCards.forEach((card, i) => {
+                    setTimeout(() => {
+                        card.classList.add('visible');
+                        const counter = card.querySelector('[data-counter]');
+                        if (counter) {
+                            animateCounter(counter, parseInt(counter.dataset.counter), 1800);
+                        }
+                    }, i * 150);
+                });
 
                 // Animate media cards
                 if (entry.target.classList.contains('media-section')) {
@@ -1529,7 +1716,7 @@
                             if (counter) {
                                 animateCounter(counter, parseInt(counter.dataset.counter), 1500);
                             }
-                        }, i * 150);
+                        }, i * 120);
                     });
                 }
 
@@ -1538,7 +1725,7 @@
                     entry.target.classList.add('in-view');
                     const cards = entry.target.querySelectorAll('.link-card');
                     cards.forEach((card, i) => {
-                        setTimeout(() => card.classList.add('visible'), 300 + i * 100);
+                        setTimeout(() => card.classList.add('visible'), 250 + i * 80);
                     });
                 }
 
