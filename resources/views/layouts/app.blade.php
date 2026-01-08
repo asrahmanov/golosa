@@ -626,6 +626,7 @@
             <nav class="nav" id="nav">
                 <a href="{{ route('home') }}" class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}">Главная</a>
                 <a href="{{ route('opening') }}" class="nav-link {{ request()->routeIs('opening') ? 'active' : '' }}">Открытие</a>
+                <a href="{{ route('results') }}" class="nav-link {{ request()->routeIs('results') ? 'active' : '' }}">Результаты</a>
                 <a href="{{ route('tales.index') }}" class="nav-link {{ request()->routeIs('tales.*') ? 'active' : '' }}">Сказки</a>
                 <a href="{{ route('regions.index') }}" class="nav-link {{ request()->routeIs('regions.*') ? 'active' : '' }}">Народы</a>
                 <a href="{{ route('about') }}" class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}">О проекте</a>
