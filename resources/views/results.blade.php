@@ -983,11 +983,16 @@
     .cta-text {
         font-size: 1.4rem;
         color: var(--color-text-muted);
-        margin-bottom: 2.5rem;
-        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        line-height: 1.8;
         opacity: 0;
         transform: translateY(30px);
         transition: all 1s ease 0.3s;
+        max-width: 800px;
+    }
+
+    .cta-text:last-of-type {
+        margin-bottom: 0;
     }
 
     .cta-section.in-view .cta-text {
@@ -995,39 +1000,54 @@
         transform: translateY(0);
     }
 
-    .cta-buttons {
+    /* Final Logo */
+    .final-logo {
         display: flex;
-        gap: 1.5rem;
-        justify-content: center;
-        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 3rem;
         opacity: 0;
-        transform: translateY(30px);
-        transition: all 1s ease 0.5s;
+        transform: translateY(30px) scale(0.9);
+        transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.9s;
     }
 
-    .cta-section.in-view .cta-buttons {
+    .cta-section.in-view .final-logo {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
     }
 
-    .btn {
-        position: relative;
-        overflow: hidden;
+    .final-logo span:first-child {
+        font-size: 4rem;
+        animation: featherFloat 3s ease-in-out infinite;
+        filter: drop-shadow(0 0 30px rgba(201, 168, 108, 0.5));
     }
 
-    .btn::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-        transition: left 0.6s ease;
+    @keyframes featherFloat {
+        0%, 100% { transform: translateY(0) rotate(-5deg); }
+        50% { transform: translateY(-10px) rotate(5deg); }
     }
 
-    .btn:hover::before {
-        left: 100%;
+    .final-logo-text {
+        font-family: var(--font-display);
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 50%, var(--color-text) 100%);
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: gradientText 5s ease infinite;
+        letter-spacing: 0.05em;
+    }
+
+    .final-logo-year {
+        font-family: var(--font-display);
+        font-size: 1.2rem;
+        color: var(--color-accent);
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        opacity: 0.8;
     }
 
     /* Confetti Container */
@@ -1153,6 +1173,14 @@
             font-size: 1.1rem;
         }
 
+        .final-logo-text {
+            font-size: 1.8rem;
+        }
+
+        .final-logo span:first-child {
+            font-size: 3rem;
+        }
+
         .progress-ring-container {
             width: 160px;
             height: 160px;
@@ -1230,10 +1258,6 @@
                 <span class="word">Результаты</span> <span class="word">проекта</span>
             </h1>
             <p class="hero-subtitle">Голоса Единства — всероссийская аудиобиблиотека народных сказок к Году единства народов России</p>
-            <div class="scroll-hint">
-                <div class="scroll-hint-text">Листайте вниз</div>
-                <div class="scroll-mouse"></div>
-            </div>
         </div>
     </section>
 
@@ -1554,14 +1578,23 @@
         </div>
     </section>
 
-    <!-- CTA -->
+    <!-- Final -->
     <section class="result-section cta-section" data-index="7">
         <div class="cta-content">
-            <h2 class="cta-title">Спасибо за поддержку!</h2>
-            <p class="cta-text">Вместе мы сохраняем культурное наследие народов России для будущих поколений</p>
-            <div class="cta-buttons">
-                <a href="{{ route('tales.index') }}" class="btn btn-primary">Слушать сказки</a>
-                <a href="{{ route('home') }}" class="btn btn-secondary">На главную</a>
+            <h2 class="cta-title">Мы — единая страна</h2>
+            <p class="cta-text">
+                «Голоса Единства» — это больше, чем проект. Это живая память народов России, бережно собранная в голосах сказителей.
+            </p>
+            <p class="cta-text" style="transition-delay: 0.5s;">
+                Каждая сказка — это мост между поколениями, между культурами, между сердцами. Мы объединяем более 190 народов через мудрость, которая передавалась веками.
+            </p>
+            <p class="cta-text" style="transition-delay: 0.7s;">
+                Пусть голоса наших предков звучат для наших детей. Пусть сказки народов России продолжают объединять нас — разных, но единых.
+            </p>
+            <div class="final-logo">
+                <span>🪶</span>
+                <span class="final-logo-text">Голоса Единства</span>
+                <span class="final-logo-year">2026</span>
             </div>
         </div>
     </section>
